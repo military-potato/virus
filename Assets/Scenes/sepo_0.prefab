@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6267291216923948644, guid: f00380239ffb21b4c87834adc53e421c, type: 3}
+  m_Sprite: {fileID: 6267291216923948644, guid: f4f02c7cc08a188408fac3e33f7970c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,6 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fa7455f5e6f64ea16b3110c3e7a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
+  maxHealth: 0
+  moveSpeed: 0
+  detectRange: 0
 --- !u!50 &3717873632128508083
 Rigidbody2D:
   serializedVersion: 5
