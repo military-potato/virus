@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3fcb02bfe781c9d45b9ff2f0a0df5146
+guid: a0b1d4f67ef35db4f8fb756cc5cd4713
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8003947546472479930
-    second: gizi_0
+      213: 4063165346714243437
+    second: 12_20260503201453_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gizi_0
+      name: 12_20260503201453_0
       rect:
         serializedVersion: 2
-        x: 87
-        y: 88
-        width: 935
-        height: 931
-      alignment: 9
-      pivot: {x: 0.44565415, y: 0.29046828}
-      border: {x: 0, y: 0, z: 91, w: 166}
+        x: 0
+        y: 0
+        width: 1500
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: abcf95403ebb31f60800000000000000
-      internalID: 8003947546472479930
+      spriteID: d615492fa53436830800000000000000
+      internalID: 4063165346714243437
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 77de9f1d269ff8641bb611ebf30cac5b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gizi_0: 8003947546472479930
+      12_20260503201453_0: 4063165346714243437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

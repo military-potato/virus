@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3717873632128508083}
   m_Layer: 7
   m_Name: sepo_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.66, y: -0.68, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.65, y: 0.65, z: 3.2499998}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -105,9 +105,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fa7455f5e6f64ea16b3110c3e7a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  maxHealth: 0
-  moveSpeed: 0
-  detectRange: 0
+  maxHealth: 10
+  moveSpeed: 10
+  detectRange: 10
+  radius: 2
+  currentState: 0
+  baseTarget: {fileID: 0}
+  verticalRatio: 0.7
+  attackRange: 2
+  attackCooldown: 0.7
+  damage: 8
 --- !u!50 &3717873632128508083
 Rigidbody2D:
   serializedVersion: 5
