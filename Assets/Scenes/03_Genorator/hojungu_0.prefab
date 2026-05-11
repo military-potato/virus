@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1618882693204138927}
   - component: {fileID: 4488180934551786605}
   m_Layer: 6
-  m_Name: captin_0
+  m_Name: hojungu_0
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1980809409016678949, guid: 161f1cbbc8922f4498d3a9632394afac, type: 3}
+  m_Sprite: {fileID: 6267291216923948644, guid: f4f02c7cc08a188408fac3e33f7970c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,6 +108,10 @@ MonoBehaviour:
   maxHealth: 20
   moveSpeed: 10
   detectRange: 20
+  damage: 10
+  attackRate: 0
+  produceCost: 10
+  produceCooldown: 3
   radius: 2
   currentState: 0
   verticalRatio: 0.7

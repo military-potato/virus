@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a9b7454fd1732124eb839be78ccd2418
+guid: 57338c64e1a5367479157625c6f8480f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4552607404022373062
-    second: "\uC2A4\uD06C\uB9B0\uC0F7 2026-05-03 190331_0"
+      213: 4255798416331755049
+    second: NKsepo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC2A4\uD06C\uB9B0\uC0F7 2026-05-03 190331_0"
+      name: NKsepo_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1860
-        height: 1046
+        x: 160
+        y: 217
+        width: 710
+        height: 679
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a35ee61dfa3e1d0c0800000000000000
-      internalID: -4552607404022373062
+      spriteID: 92ecf198c12af0b30800000000000000
+      internalID: 4255798416331755049
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\uC2A4\uD06C\uB9B0\uC0F7 2026-05-03 190331_0": -4552607404022373062
+      NKsepo_0: 4255798416331755049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

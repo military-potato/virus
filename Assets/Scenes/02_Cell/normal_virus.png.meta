@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f97712510cb2e5144982a8e8365a9761
+guid: 4b4291f2215c85f4d95a06dfab603b4d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5470436369146123406
-    second: stage_0
+      213: 1699880451886416927
+    second: normal_virus_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stage_0
+      name: normal_virus_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 143
-        width: 1005
-        height: 690
+        x: 15
+        y: 61
+        width: 990
+        height: 946
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27beaaa1b1b1514b0800000000000000
-      internalID: -5470436369146123406
+      spriteID: f14025fb340379710800000000000000
+      internalID: 1699880451886416927
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stage_0: -5470436369146123406
+      normal_virus_0: 1699880451886416927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

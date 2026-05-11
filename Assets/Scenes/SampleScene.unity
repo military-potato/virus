@@ -642,9 +642,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79127ba56291514db28751d78cb6e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestSpawner
-  allyPrefab: {fileID: 8485866012915783785, guid: 72faafd7b21c1b046969fcfe6793fd9a, type: 3}
+  hojunguPrefab: {fileID: 8485866012915783785, guid: 72faafd7b21c1b046969fcfe6793fd9a, type: 3}
   enemyPrefab: {fileID: 6348470013060651939, guid: 21c817bcd4d171a4bb1d55a3f3f049c4, type: 3}
+  daesikPrefab: {fileID: 8485866012915783785, guid: 69fde6b09249636468fbc75c3c63053c, type: 3}
+  killerTPrefab: {fileID: 8485866012915783785, guid: a66111c83b0376b42944dfedf9d45012, type: 3}
+  limpguPrefab: {fileID: 8485866012915783785, guid: 5f125dea68645a940806b9b4e68092c8, type: 3}
+  NKsepoPrefab: {fileID: 8485866012915783785, guid: eed7c857ccfabb1459e235b79012c018, type: 3}
   enemySpawnRadius: 55
+  giziTransform: {fileID: 1618751787}
 --- !u!4 &1063381929
 Transform:
   m_ObjectHideFlags: 0
@@ -949,6 +954,10 @@ MonoBehaviour:
   maxHealth: 1000
   moveSpeed: 0
   detectRange: 0
+  damage: 0
+  attackRate: 0
+  produceCost: 10
+  produceCooldown: 3
   radius: 8
 --- !u!1 &1915581323
 GameObject:
