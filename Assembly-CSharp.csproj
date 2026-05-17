@@ -66,6 +66,7 @@
     <Compile Include="Assets\goToSampleScene.cs" />
     <Compile Include="Assets\Scenes\04_Scripts\TestSpawner.cs" />
     <Compile Include="Assets\Scenes\04_Scripts\UnitBase.cs" />
+    <Compile Include="Assets\Scenes\testest\StatusController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
