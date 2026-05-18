@@ -64,6 +64,8 @@
     <Compile Include="Assets\Scenes\04_Scripts\EnemyUnit.cs" />
     <Compile Include="Assets\Scenes\04_Scripts\AllyUnit.cs" />
     <Compile Include="Assets\goToSampleScene.cs" />
+    <Compile Include="Assets\Scenes\testest\CellDashCombat.cs" />
+    <Compile Include="Assets\Scenes\testest\CellTestFX.cs" />
     <Compile Include="Assets\Scenes\04_Scripts\TestSpawner.cs" />
     <Compile Include="Assets\Scenes\04_Scripts\UnitBase.cs" />
     <Compile Include="Assets\Scenes\testest\StatusController.cs" />
