@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2461564502445803551}
   - component: {fileID: 1479405537771835670}
-  - component: {fileID: -1618882693204138927}
   - component: {fileID: 4488180934551786605}
+  - component: {fileID: 7249049437788642756}
   m_Layer: 6
   m_Name: hojungu_0
   m_TagString: Ally
@@ -93,31 +93,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-1618882693204138927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8485866012915783785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 925936605a1835141bf029f7b8e3f670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AllyUnit
-  maxHealth: 20
-  moveSpeed: 10
-  detectRange: 20
-  damage: 10
-  attackRate: 0
-  produceCost: 10
-  produceCooldown: 1
-  radius: 2
-  currentState: 0
-  verticalRatio: 0.7
-  attackRange: 1.5
-  attackCooldown: 1
-  damage: 10
 --- !u!50 &4488180934551786605
 Rigidbody2D:
   serializedVersion: 5
@@ -145,3 +120,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7249049437788642756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485866012915783785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4706821d6a7bbef41a6ec887e303a7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HojunguSkill
+  maxHealth: 20
+  moveSpeed: 10
+  detectRange: 20
+  damage: 10
+  attackRate: 500
+  produceCost: 10
+  produceCooldown: 3
+  radius: 2
+  currentState: 0
+  verticalRatio: 0.7
+  attackRange: 1.5
+  lifetime: 60
+  deathDropInflammation: 5
+  toxicDamage: 10
+  toxicRangeMultiplier: 3
+  toxicEffectPrefab: {fileID: 6797017951499698931, guid: 027ae16488d5746469ca5aa162b95544, type: 3}
+  effectDuration: 2

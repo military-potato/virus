@@ -1906,10 +1906,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemyWaveList:
-  - enemyName: Nvirus
+  - enemyName: vvv
     enemyPrefab: {fileID: 6348470013060651939, guid: 21c817bcd4d171a4bb1d55a3f3f049c4, type: 3}
-    spawnCount: 4
-  enemySpawnRadius: 50
+    spawnCount: 15
+  enemySpawnRadius: 40
   currentWave: 1
   spawnInterval: 0.5
   waveInterval: 10

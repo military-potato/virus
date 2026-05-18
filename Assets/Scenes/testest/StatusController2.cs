@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using TMPro; // TextMesh Pro 컴포넌트 제어용
 using System.Collections; // Coroutine(IEnumerator) 사용을 위해 필수
 
@@ -139,4 +139,4 @@ public class StatusController : MonoBehaviour
         if (toleranceText != null)
             toleranceText.text = toleranceValue.ToString();
     }
-}
+}*/

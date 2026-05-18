@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1479405537771835670}
   - component: {fileID: -1618882693204138927}
   - component: {fileID: 4488180934551786605}
+  - component: {fileID: 3734654707398844117}
   m_Layer: 6
   m_Name: NKsepo_0
   m_TagString: Ally
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485866012915783785}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 925936605a1835141bf029f7b8e3f670, type: 3}
   m_Name: 
@@ -116,8 +117,6 @@ MonoBehaviour:
   currentState: 0
   verticalRatio: 0.7
   attackRange: 1.5
-  attackCooldown: 1
-  damage: 10
 --- !u!50 &4488180934551786605
 Rigidbody2D:
   serializedVersion: 5
@@ -145,3 +144,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3734654707398844117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485866012915783785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e8b49327d731e419416d3a95a508af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NKSkill
+  maxHealth: 1000
+  moveSpeed: 20
+  detectRange: 20
+  damage: 5
+  attackRate: 200
+  produceCost: 10
+  produceCooldown: 3
+  radius: 10
+  currentState: 0
+  verticalRatio: 0.7
+  attackRange: 1.5
+  hojunguPrefab: {fileID: 8485866012915783785, guid: 72faafd7b21c1b046969fcfe6793fd9a, type: 3}
+  firstSpawnTime: 15
+  respawnTime: 30
+  spawnOffsetDistance: 5
