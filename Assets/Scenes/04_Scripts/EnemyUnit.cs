@@ -4,7 +4,7 @@ using UnityEngine;
 // UnitBase를 상속받아 기본 체력, 속도, 사거리 변수를 그대로 활용합니다.
 public class EnemyUnit : UnitBase
 {
-    
+
     public enum State { MoveToGoal, Chasing, Attacking }
 
     [Header("AI Settings")]
@@ -13,9 +13,9 @@ public class EnemyUnit : UnitBase
     public float verticalRatio = 0.7f;  // 2.5D 수직 속도 보정값
 
     [Header("Combat Settings")]
-    public float attackRange = 1.5f;    
-    public float attackCooldown = 1.0f; // 공격 속도 (초) - 추가
-    public float damage = 8f;           // 공격력 - 추가
+    public float attackRange = 1.5f;
+
+
 
     private float lastAttackTime;       // 마지막 공격 시간 기록 - 추가    // 1.0f 대신 인스펙터에서 조절 가능한 변수로 승격!
 
@@ -25,8 +25,8 @@ public class EnemyUnit : UnitBase
     protected override void Start()
     {
         base.Start(); // currentHealth = maxHealth 설정 실행
-        
-        GameObject findBase = GameObject.Find("gizi_0"); 
+
+        GameObject findBase = GameObject.Find("gizi_0");
 
         if (findBase != null)
         {
@@ -38,7 +38,7 @@ public class EnemyUnit : UnitBase
         }
     }
 
-    void Update()
+    protected override void Update()
     {
         // 기지가 설정되지 않았다면 로직을 실행하지 않음
         if (baseTarget == null)
@@ -55,7 +55,7 @@ public class EnemyUnit : UnitBase
         HandleAction();
     }
 
-    void FindClosestAlly()
+    protected void FindClosestAlly()
     {
         // "Ally" 태그를 가진 모든 아군 오브젝트 탐색
         GameObject[] allies = GameObject.FindGameObjectsWithTag("Ally");
@@ -65,7 +65,7 @@ public class EnemyUnit : UnitBase
         foreach (GameObject ally in allies)
         {
             float distance = Vector2.Distance(transform.position, ally.transform.position);
-            
+
             // UnitBase의 detectRange(인식 범위) 내에 있는지 확인
             if (distance < shortestDistance && distance <= detectRange)
             {
@@ -87,17 +87,17 @@ public class EnemyUnit : UnitBase
         }
     }
 
-    void UpdateState()
+    protected void UpdateState()
     {
         if (currentTarget == null) return;
 
         // 1. 나와 타겟 사이의 실제 중심점 간 거리 계산
         float distance = Vector2.Distance(transform.position, currentTarget.position);
-        
+
         // 2. 타겟의 UnitBase 컴포넌트를 가져와 반지름 확인
         float targetRadius = 0f;
         UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();
-        
+
         if (targetUnit != null)
         {
             targetRadius = targetUnit.radius;
@@ -130,29 +130,31 @@ public class EnemyUnit : UnitBase
         }
     }
 
-    void HandleAction()
+    protected void HandleAction()
     {
         if (currentTarget == null) return;
 
         if (currentState == State.Attacking)
         {
-            // [공격 상태] 주기적으로 공격 실행
-            if (Time.time >= lastAttackTime + attackCooldown)
+            // ★ [수정] 부모(UnitBase)가 Update에서 알아서 깎아주는 attackCooldown 시계가 0 이하가 되었는지 확인합니다.
+            if (attackCooldown <= 0)
             {
                 AttackTarget();
-                lastAttackTime = Time.time;
+
+                // ★ [중요] 공격을 했으니, 인스펙터 창에서 설정한 Attack Rate(공격 간격) 수치로 쿨타임을 다시 가득 채워줍니다!
+                attackCooldown = attackRate;
             }
             return;
         }
 
-        // [이동 상태] 방향 계산 및 2.5D 보정
+        // [이동 상태] 방향 계산 및 2.5D 보정 (기존 코드 유지)
         Vector3 dir = (currentTarget.position - transform.position).normalized;
         Vector3 velocity = new Vector3(dir.x, dir.y * verticalRatio, 0);
 
         transform.position += velocity * moveSpeed * Time.deltaTime;
     }
 
-    void AttackTarget()
+    protected void AttackTarget()
     {
         if (currentTarget == null) return;
 
@@ -166,7 +168,7 @@ public class EnemyUnit : UnitBase
     }
 
     // 에디터에서 범위를 시각적으로 보여주는 기즈모
-    void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         // 1. 노란색 원: 아군을 포착하는 센서 범위 (UnitBase의 detectRange)
         Gizmos.color = Color.yellow;

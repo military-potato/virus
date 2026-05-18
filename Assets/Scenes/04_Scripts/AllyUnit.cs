@@ -10,20 +10,24 @@ public class AllyUnit : UnitBase
 
     [Header("Combat Settings")]
     public float attackRange = 1.5f;    // 멈춰서 공격할 사거리
-    public float attackCooldown = 1.0f; // 공격 속도 (초)
-    public float damage = 10f;          // 공격력
 
-    private Transform currentTarget;
+    protected Transform currentTarget;
     private float lastAttackTime;
     private Vector3 spawnPosition;      // 원래 대기하던 위치 기록용
+
+    // [추가] 분리된 연출 스크립트를 연결하기 위한 참조 변수
+    private CellActionFX actionFX;
 
     protected override void Start()
     {
         base.Start();
         spawnPosition = transform.position; // 스폰된 위치를 집(대기소)으로 지정
+
+        // [추가] 내 몸뚱이에 함께 붙어있을 연출 컴포넌트를 가져옵니다.
+        actionFX = GetComponent<CellActionFX>();
     }
 
-    void Update()
+    protected override void Update()
     {
         // 1. 적 탐색 및 상태 업데이트
         FindClosestEnemy();
@@ -33,7 +37,7 @@ public class AllyUnit : UnitBase
         HandleAction();
     }
 
-    void FindClosestEnemy()
+    protected virtual void FindClosestEnemy()
     {
         // "Enemy" 태그를 가진 모든 적 오브젝트 탐색
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -43,7 +47,7 @@ public class AllyUnit : UnitBase
         foreach (GameObject enemy in enemies)
         {
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
-            
+
             // UnitBase의 detectRange(인식 범위) 내에 있는지 확인
             if (distance < shortestDistance && distance <= detectRange)
             {
@@ -65,12 +69,12 @@ public class AllyUnit : UnitBase
         }
     }
 
-    void UpdateState()
+    protected void UpdateState()
     {
         if (currentTarget == null) return;
 
         float distance = Vector2.Distance(transform.position, currentTarget.position);
-        
+
         if (distance <= attackRange)
         {
             currentState = State.Attacking;
@@ -81,7 +85,7 @@ public class AllyUnit : UnitBase
         }
     }
 
-    void HandleAction()
+    protected void HandleAction()
     {
         // 1. 대기 상태 (적이 없을 때)
         if (currentState == State.Idle)
@@ -102,11 +106,13 @@ public class AllyUnit : UnitBase
         {
             if (currentTarget == null) return;
 
-            // 주기적으로 타겟에게 데미지를 입힘
-            if (Time.time >= lastAttackTime + attackCooldown)
+            // 부모(UnitBase)가 깎아주는 쿨타임 타이머가 0 이하가 되었는지 확인
+            if (attackCooldown <= 0)
             {
                 AttackTarget();
-                lastAttackTime = Time.time;
+
+                // 공격 후, 부모가 가진 attackRate(공격 간격) 수치로 타이머를 다시 채웁니다!
+                attackCooldown = attackRate;
             }
             return;
         }
@@ -120,9 +126,15 @@ public class AllyUnit : UnitBase
         }
     }
 
-    void AttackTarget()
+    protected void AttackTarget()
     {
         if (currentTarget == null) return;
+
+        // [신호 연동] 공격 주기가 도래하여 때리는 타이밍에 분리된 연출 컴포넌트로 타겟 정보를 토스합니다.
+        if (actionFX != null)
+        {
+            actionFX.PlayBodySlam(currentTarget);
+        }
 
         // 상대방의 UnitBase 컴포넌트를 가져와서 데미지를 줍니다.
         UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();
@@ -133,7 +145,7 @@ public class AllyUnit : UnitBase
         }
     }
 
-    void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, detectRange); // 인식 범위 (초록색)

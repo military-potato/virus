@@ -73,10 +73,8 @@
     <Compile Include="Assets\Scenes\04_Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scenes\04_Scripts\UnitSelect.cs" />
     <Compile Include="Assets\Scenes\04_Scripts\MergeSkill.cs" />
-    <Compile Include="Assets\Scenes\testest\CellDashCombat.cs" />
-    <Compile Include="Assets\Scenes\testest\CellTestFX.cs" />
-    <Compile Include="Assets\Scenes\testest\StatusController2.cs" />
     <Compile Include="Assets\Scenes\04_Scripts\allySpawn.cs" />
+    <Compile Include="Assets\Scenes\04_Scripts\CellActionFX.cs" />
     <Compile Include="Assets\Scenes\04_Scripts\UnitBase.cs" />
   </ItemGroup>
   <ItemGroup>
