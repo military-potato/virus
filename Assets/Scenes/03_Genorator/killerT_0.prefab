@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1479405537771835670}
   - component: {fileID: -1618882693204138927}
   - component: {fileID: 4488180934551786605}
+  - component: {fileID: -3748612971222900157}
   m_Layer: 6
   m_Name: killerT_0
   m_TagString: Ally
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485866012915783785}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 925936605a1835141bf029f7b8e3f670, type: 3}
   m_Name: 
@@ -116,8 +117,6 @@ MonoBehaviour:
   currentState: 0
   verticalRatio: 0.7
   attackRange: 1.5
-  attackCooldown: 1
-  damage: 10
 --- !u!50 &4488180934551786605
 Rigidbody2D:
   serializedVersion: 5
@@ -145,3 +144,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3748612971222900157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485866012915783785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d7030709b43454289fcbd7e0e08f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KillerTSkill
+  maxHealth: 20
+  moveSpeed: 10
+  detectRange: 20
+  damage: 10
+  attackRate: 100
+  produceCost: 10
+  produceCooldown: 3
+  radius: 10
+  currentState: 0
+  verticalRatio: 0.7
+  attackRange: 1.5

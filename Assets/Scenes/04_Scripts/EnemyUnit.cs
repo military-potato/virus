@@ -14,8 +14,8 @@ public class EnemyUnit : UnitBase
 
     [Header("Combat Settings")]
     public float attackRange = 1.5f;    
-    public float attackCooldown = 1.0f; // 공격 속도 (초) - 추가
-    public float damage = 8f;           // 공격력 - 추가
+    
+    
 
     private float lastAttackTime;       // 마지막 공격 시간 기록 - 추가    // 1.0f 대신 인스펙터에서 조절 가능한 변수로 승격!
 
@@ -38,7 +38,7 @@ public class EnemyUnit : UnitBase
         }
     }
 
-    void Update()
+    protected override void Update()
     {
         // 기지가 설정되지 않았다면 로직을 실행하지 않음
         if (baseTarget == null)
@@ -136,16 +136,18 @@ public class EnemyUnit : UnitBase
 
         if (currentState == State.Attacking)
         {
-            // [공격 상태] 주기적으로 공격 실행
-            if (Time.time >= lastAttackTime + attackCooldown)
+            // ★ [수정] 부모(UnitBase)가 Update에서 알아서 깎아주는 attackCooldown 시계가 0 이하가 되었는지 확인합니다.
+            if (attackCooldown <= 0)
             {
                 AttackTarget();
-                lastAttackTime = Time.time;
+
+                // ★ [중요] 공격을 했으니, 인스펙터 창에서 설정한 Attack Rate(공격 간격) 수치로 쿨타임을 다시 가득 채워줍니다!
+                attackCooldown = attackRate;
             }
             return;
         }
 
-        // [이동 상태] 방향 계산 및 2.5D 보정
+        // [이동 상태] 방향 계산 및 2.5D 보정 (기존 코드 유지)
         Vector3 dir = (currentTarget.position - transform.position).normalized;
         Vector3 velocity = new Vector3(dir.x, dir.y * verticalRatio, 0);
 
