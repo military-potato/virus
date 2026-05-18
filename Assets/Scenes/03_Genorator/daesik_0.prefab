@@ -111,7 +111,7 @@ MonoBehaviour:
   damage: 10
   attackRate: 0
   produceCost: 10
-  produceCooldown: 3
+  produceCooldown: 1
   radius: 2
   currentState: 0
   verticalRatio: 0.7
