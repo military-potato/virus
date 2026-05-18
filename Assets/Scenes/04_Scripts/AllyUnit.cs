@@ -17,10 +17,17 @@ public class AllyUnit : UnitBase
     private float lastAttackTime;
     private Vector3 spawnPosition;      // 원래 대기하던 위치 기록용
 
+    // [추가] 몸통 박치기 연출 컴포넌트 참조 변수
+    private CellActionFX actionFX;
+
     protected override void Start()
     {
         base.Start();
         spawnPosition = transform.position; // 스폰된 위치를 집(대기소)으로 지정
+        
+        // [추가] 내 몸에 붙어있는 연출 컴포넌트를 가져옴
+        actionFX = GetComponent<CellActionFX>();
+
     }
 
     void Update()
@@ -123,6 +130,11 @@ public class AllyUnit : UnitBase
     void AttackTarget()
     {
         if (currentTarget == null) return;
+        // [연출 이어붙이기] 데미지를 주기 직전에 타겟을 향해 몸통 박치기 연출을 실행합니다.
+        if (actionFX != null)
+        {
+            actionFX.PlayBodySlam(currentTarget);
+        }
 
         // 상대방의 UnitBase 컴포넌트를 가져와서 데미지를 줍니다.
         UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();
