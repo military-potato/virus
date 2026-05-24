@@ -4,6 +4,8 @@ using System.Collections; // Coroutine(IEnumerator) 사용을 위해 필수
 
 public class StatusController : MonoBehaviour
 {
+    
+    
     // --- [싱글톤 추가] 어디서나 StatusController.Instance 로 접근할 수 있게 합니다 ---
     public static StatusController Instance { get; private set; }
     
@@ -71,7 +73,8 @@ public class StatusController : MonoBehaviour
             return false;
         }
     }
-
+    
+    
     /// <summary>
     /// 외부에서 수치를 회복시켜줄 때 사용하는 함수 (예: 적 처치 시 염증/고통 완화 등)
     /// </summary>
@@ -193,5 +196,28 @@ public class StatusController : MonoBehaviour
 
         if (toleranceText != null)
             toleranceText.text = ToleranceValue.ToString();
+    }
+    
+    public bool TrySpendPain(int amount)
+    {
+        if (PainValue >= amount)
+        {
+            PainValue -= amount;
+            UpdateAllUI();
+            return true;
+        }
+        else
+        {
+            TriggerWarning();
+            Debug.LogWarning("고통 수치가 부족하여 아이템을 사용할 수 없습니다!");
+            return false;
+        }
+    }
+
+// 스킬/아이템 효과로 내성수치를 직접 깎을 때 사용할 함수
+    public void SubTolerance(int amount)
+    {
+        ToleranceValue = Mathf.Max(0, ToleranceValue - amount);
+        UpdateAllUI();
     }
 }
