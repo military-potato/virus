@@ -145,7 +145,7 @@ MonoBehaviour:
   attackRange: 1.5
   lifetime: 60
   deathDropInflammation: 5
-  toxicDamage: 10
+  toxicDamage: 50
   toxicRangeMultiplier: 3
   toxicEffectPrefab: {fileID: 6797017951499698931, guid: 027ae16488d5746469ca5aa162b95544, type: 3}
-  effectDuration: 2
+  effectDuration: 0.6

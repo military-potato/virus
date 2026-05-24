@@ -89,6 +89,9 @@ public class EnemyUnit : UnitBase
 
     protected void UpdateState()
     {
+        if (attackCooldown > 0)
+            attackCooldown -= Time.deltaTime;
+        
         if (currentTarget == null) return;
 
         // 1. 나와 타겟 사이의 실제 중심점 간 거리 계산
