@@ -40,8 +40,6 @@ public class EnemyUnit : UnitBase
 
     protected override void Update()
     {
-        if (attackCooldown > 0)
-            attackCooldown -= Time.deltaTime;
         // 기지가 설정되지 않았다면 로직을 실행하지 않음
         if (baseTarget == null)
         {
