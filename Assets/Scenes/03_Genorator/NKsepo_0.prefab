@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2461564502445803551}
   - component: {fileID: 1479405537771835670}
-  - component: {fileID: -1618882693204138927}
   - component: {fileID: 4488180934551786605}
   - component: {fileID: 3734654707398844117}
   m_Layer: 6
@@ -94,29 +93,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-1618882693204138927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8485866012915783785}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 925936605a1835141bf029f7b8e3f670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AllyUnit
-  maxHealth: 20
-  moveSpeed: 10
-  detectRange: 20
-  damage: 10
-  attackRate: 0
-  produceCost: 10
-  produceCooldown: 3
-  radius: 2
-  currentState: 0
-  verticalRatio: 0.7
-  attackRange: 1.5
 --- !u!50 &4488180934551786605
 Rigidbody2D:
   serializedVersion: 5

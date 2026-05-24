@@ -71,6 +71,9 @@ public class AllyUnit : UnitBase
 
     protected void UpdateState()
     {
+        if (attackCooldown > 0)
+            attackCooldown -= Time.deltaTime;
+        
         if (currentTarget == null) return;
 
         float distance = Vector2.Distance(transform.position, currentTarget.position);

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3015ef9266ffec248874625d759ce347
+guid: f97712510cb2e5144982a8e8365a9761
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8003947546472479930
-    second: gizi_0
+      213: -5470436369146123406
+    second: stage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gizi_0
+      name: stage_0
       rect:
         serializedVersion: 2
-        x: 87
-        y: 88
-        width: 935
-        height: 931
-      alignment: 9
-      pivot: {x: 0.44565415, y: 0.29046828}
-      border: {x: 0, y: 0, z: 91, w: 166}
+        x: 7
+        y: 143
+        width: 1005
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: abcf95403ebb31f60800000000000000
-      internalID: 8003947546472479930
+      spriteID: 27beaaa1b1b1514b0800000000000000
+      internalID: -5470436369146123406
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 77de9f1d269ff8641bb611ebf30cac5b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gizi_0: 8003947546472479930
+      stage_0: -5470436369146123406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

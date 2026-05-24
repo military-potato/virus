@@ -134,11 +134,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HojunguSkill
   maxHealth: 20
   moveSpeed: 10
-  detectRange: 20
-  damage: 10
-  attackRate: 500
+  detectRange: 30
+  damage: 20
+  attackRate: 0.5
   produceCost: 10
-  produceCooldown: 3
+  produceCooldown: 0.5
   radius: 2
   currentState: 0
   verticalRatio: 0.7
