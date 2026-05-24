@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 1479405537771835670}
   - component: {fileID: -1618882693204138927}
   - component: {fileID: 4488180934551786605}
-  - component: {fileID: 935181620077610271}
   m_Layer: 6
-  m_Name: limpgu_0
+  m_Name: captin_0
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8280121853360078944, guid: 08e3fb0e506cf094d8253969e56d7746, type: 3}
+  m_Sprite: {fileID: 1980809409016678949, guid: 161f1cbbc8922f4498d3a9632394afac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,22 +100,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485866012915783785}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 925936605a1835141bf029f7b8e3f670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AllyUnit
-  maxHealth: 1
+  maxHealth: 20
   moveSpeed: 10
   detectRange: 20
-  damage: 0
-  attackRate: 0
-  produceCost: 10
-  produceCooldown: 3
   radius: 2
   currentState: 0
   verticalRatio: 0.7
   attackRange: 1.5
+  attackCooldown: 1
+  damage: 10
 --- !u!50 &4488180934551786605
 Rigidbody2D:
   serializedVersion: 5
@@ -144,32 +141,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &935181620077610271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8485866012915783785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82512b9ae5778af4ca40a82491119046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LimpguSkill
-  maxHealth: 1
-  moveSpeed: 10
-  detectRange: 0
-  damage: 0
-  attackRate: 0
-  produceCost: 10
-  produceCooldown: 3
-  radius: 2
-  currentState: 0
-  verticalRatio: 0.7
-  attackRange: 1.5
-  resistanceAmount: 10
-  firstProductionTime: 15
-  reproductionTime: 30
-  evadeRangeMultiplier: 6
-  pingInterval: 0.5
-  pingDistance: 3
