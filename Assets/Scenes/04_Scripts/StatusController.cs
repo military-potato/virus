@@ -108,50 +108,7 @@ public class StatusController : MonoBehaviour
             UpdateAllUI();
         }
 
-
-        // --- 50씩 감소 로직 및 부족 시 팝업 처리 (4, 5, 6) ---
-
-        // 염증 수치 감소 (4)
-        if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            if (InflammationValue >= 50)
-            {
-                InflammationValue -= 50;
-                UpdateAllUI();
-            }
-            else
-            {
-                TriggerWarning();
-            }
-        }
-
-        // 고통 수치 감소 (5)
-        if (Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))
-        {
-            if (PainValue >= 50)
-            {
-                PainValue -= 50;
-                UpdateAllUI();
-            }
-            else
-            {
-                TriggerWarning();
-            }
-        }
-
-        // 내성 수치 감소 (6)
-        if (Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))
-        {
-            if (ToleranceValue >= 50)
-            {
-                ToleranceValue -= 50;
-                UpdateAllUI();
-            }
-            else
-            {
-                TriggerWarning();
-            }
-        }
+        
     }
 
     /// <summary>
