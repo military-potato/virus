@@ -1907,13 +1907,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   enemySpawnRadius: 55
   waves:
-  - waveName: 
-    enemySpawnList: []
-    spawnInterval: 0
-    postWaveDelay: 0
-  - waveName: 
-    enemySpawnList: []
-    spawnInterval: 0
+  - waveName: 1
+    enemySpawnList:
+    - enemyName: 
+      enemyPrefab: {fileID: 6348470013060651939, guid: 6a284158c8249a24c8118a9139c3dae4, type: 3}
+      spawnCount: 5
+    - enemyName: 
+      enemyPrefab: {fileID: 8354894569701501226, guid: 69e4de33c46d6f84eb2c0bfbce55cb5e, type: 3}
+      spawnCount: 1
+    spawnInterval: 5
     postWaveDelay: 0
 --- !u!1 &1140562585
 GameObject:
