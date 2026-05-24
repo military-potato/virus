@@ -180,4 +180,4 @@ MonoBehaviour:
   currentState: 0
   baseTarget: {fileID: 0}
   verticalRatio: 0.7
-  attackRange: 1.5
+  attackRange: 0.7
