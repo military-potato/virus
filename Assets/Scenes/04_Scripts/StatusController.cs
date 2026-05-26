@@ -71,6 +71,34 @@ public class StatusController : MonoBehaviour
             return false;
         }
     }
+    
+    public bool TrySpendPain(int amount)
+    {
+        // 현재 염증 수치가 내려갈 수 있는 최소치(코스트)보다 여유가 있는지 확인
+        if (PainValue >= amount)
+        {
+            PainValue -= amount; // 염증 수치 감소(소모)
+            UpdateAllUI();
+            return true;
+        }
+        else
+        {
+            // 염증 수치가 부족하면(코스트보다 낮으면) 경고 팝업을 띄웁니다.
+            TriggerWarning();
+            Debug.LogWarning("고통 수치가 부족하여 아이템을 사용할 수 없습니다!");
+            return false;
+        }
+    }
+    
+    public void SubTolerance(int amount)
+    {
+        // 현재 염증 수치가 내려갈 수 있는 최소치(코스트)보다 여유가 있는지 확인
+        if (ToleranceValue >= amount)
+        {
+            ToleranceValue -= amount; // 염증 수치 감소(소모)
+            UpdateAllUI();
+        }
+    }
 
     /// <summary>
     /// 외부에서 수치를 회복시켜줄 때 사용하는 함수 (예: 적 처치 시 염증/고통 완화 등)

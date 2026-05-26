@@ -102,17 +102,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3533862290514383197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 571fa7455f5e6f64ea16b3110c3e7a99, type: 3}
+  m_Script: {fileID: 11500000, guid: 889aab7e1205f074f91da79cf2f13e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  maxHealth: 3
-  moveSpeed: 20
-  detectRange: 0
-  damage: 3
-  attackRate: 500
-  produceCost: 0
-  produceCooldown: 0
-  radius: 10
+  maxHealth: 1000
+  moveSpeed: 10
+  detectRange: 20
+  damage: 10
+  attackRate: 0.5
+  produceCost: 10
+  produceCooldown: 3
+  radius: 3
   currentState: 0
   baseTarget: {fileID: 0}
   verticalRatio: 0.7
@@ -147,9 +147,9 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 4.93
+  m_Radius: 4

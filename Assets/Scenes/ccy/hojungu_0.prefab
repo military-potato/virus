@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2461564502445803551}
   - component: {fileID: 1479405537771835670}
+  - component: {fileID: -1618882693204138927}
   - component: {fileID: 4488180934551786605}
-  - component: {fileID: -3748612971222900157}
-  - component: {fileID: -1038598709212139629}
   m_Layer: 6
-  m_Name: killerT_0
+  m_Name: hojungu_0
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8691765959727574692, guid: 87466ff093f5bb642afa912a100bddc7, type: 3}
+  m_Sprite: {fileID: 6267291216923948644, guid: f4f02c7cc08a188408fac3e33f7970c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,6 +93,31 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &-1618882693204138927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485866012915783785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925936605a1835141bf029f7b8e3f670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AllyUnit
+  maxHealth: 20
+  moveSpeed: 10
+  detectRange: 20
+  damage: 10
+  attackRate: 0
+  produceCost: 10
+  produceCooldown: 3
+  radius: 2
+  currentState: 0
+  verticalRatio: 0.7
+  attackRange: 1.5
+  attackCooldown: 1
+  damage: 10
 --- !u!50 &4488180934551786605
 Rigidbody2D:
   serializedVersion: 5
@@ -106,7 +130,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -120,37 +144,15 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &-3748612971222900157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8485866012915783785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58d7030709b43454289fcbd7e0e08f41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KillerTSkill
-  maxHealth: 20
-  moveSpeed: 10
-  detectRange: 20
-  damage: 100
-  attackRate: 3
-  produceCost: 40
-  produceCooldown: 3
-  radius: 4
-  currentState: 0
-  verticalRatio: 0.7
-  attackRange: 0.5
---- !u!58 &-1038598709212139629
+  m_Constraints: 0
+<<<<<<< HEAD:Assets/Scenes/03_Genorator/normal_virus_0.prefab
+--- !u!58 &2359268960998472711
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8485866012915783785}
+  m_GameObject: {fileID: 6348470013060651939}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -174,9 +176,35 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 4
+  m_Radius: 4.95
+--- !u!114 &8553864806099462702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348470013060651939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889aab7e1205f074f91da79cf2f13e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
+  maxHealth: 100
+  moveSpeed: 10
+  detectRange: 10
+  damage: 10
+  attackRate: 0.5
+  produceCost: 10
+  produceCooldown: 3
+  radius: 10
+  currentState: 0
+  baseTarget: {fileID: 0}
+  verticalRatio: 0.7
+  attackRange: 0.7
+=======
+>>>>>>> e680a8af6ed20594fce9da07cc96227d443c5393:Assets/Scenes/ccy/hojungu_0.prefab

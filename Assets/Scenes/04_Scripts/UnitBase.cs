@@ -29,6 +29,7 @@ public class UnitBase : MonoBehaviour
         {
             attackCooldown -= Time.deltaTime;
         }
+        
     }
 
     public virtual void TakeDamage(float damage)
@@ -44,4 +45,5 @@ public class UnitBase : MonoBehaviour
     {
         Destroy(gameObject);  // 체력 0 이하 시 사멸
     }
+    
 }
