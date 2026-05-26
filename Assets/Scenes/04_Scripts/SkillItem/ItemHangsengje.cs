@@ -23,6 +23,13 @@ public class ItemAntibiotics : ItemBase
         StartCoroutine(AntibioticsDamageRoutine());
     }
 
+    // 💡여기에 코드를 추가했습니다! 버튼 이벤트 연결용 public 함수
+    public void OnButtonClick()
+    {
+        // 버튼을 누르면 이 함수가 호출되고, 내부에서 실제 아이템 효과를 실행합니다.
+        ActivateItemEffect();
+    }
+
     private IEnumerator AntibioticsDamageRoutine()
     {
         Debug.Log("<color=green><b>[아이템] 항생제 작동 시작!</b></color> 모든 병원체 최대 체력 비례 DoT 피해 가동.");

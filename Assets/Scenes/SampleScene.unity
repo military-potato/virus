@@ -912,8 +912,9 @@ GameObject:
   - component: {fileID: 616765879}
   - component: {fileID: 616765878}
   - component: {fileID: 616765877}
+  - component: {fileID: 616765881}
   m_Layer: 0
-  m_Name: hang
+  m_Name: hae
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1107,6 +1108,24 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &616765881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616765875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49aeef9ffa5b07f4a9b93b4db5447be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemHaeyeolje
+  nameString: 
+  description: 
+  cooldownTime: 50
+  costPain: 30
+  reductionTolerance: 10
+  duration: 30
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,7 +2306,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f0dd6ab745fa44f988f2d549d322b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyWaveList: []
+  enemyWaveList:
+  - enemyName: 
+    enemyPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
+    spawnCount: 1
+  - enemyName: 
+    enemyPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
+    spawnCount: 1
+  - enemyName: 
+    enemyPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
+    spawnCount: 1
+  - enemyName: 
+    enemyPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
+    spawnCount: 1
+  - enemyName: 
+    enemyPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
+    spawnCount: 1
   enemySpawnRadius: 55
   currentWave: 1
   spawnInterval: 0.5
@@ -2718,9 +2752,9 @@ GameObject:
   - component: {fileID: 1254028969}
   - component: {fileID: 1254028972}
   - component: {fileID: 1254028971}
-  - component: {fileID: 1254028970}
+  - component: {fileID: 1254028973}
   m_Layer: 0
-  m_Name: sitoka
+  m_Name: hang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2741,52 +2775,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1977177422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1254028970
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254028968}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.6, y: 7.3}
-    newSize: {x: 8.35, y: 7.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 8.35, y: 7.92}
-  m_EdgeRadius: 0
 --- !u!114 &1254028971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2831,9 +2819,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnitSelect, Assembly-CSharp
-        m_MethodName: SelectThisUnit
+      - m_Target: {fileID: 1254028973}
+        m_TargetAssemblyTypeName: ItemAntibiotics, Assembly-CSharp
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2892,7 +2880,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 30
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4631064294570114771, guid: f388ad135532b794a89f44847e11e348, type: 3}
+  m_Sprite: {fileID: 1467740532895432885, guid: c80f4501f94adcb4ea1ec488d2b3012a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2902,6 +2890,26 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1254028973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254028968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1518d7c266a15fd47aaa169f2dd12ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemAntibiotics
+  nameString: 
+  description: 
+  cooldownTime: 1
+  costPain: 0
+  reductionTolerance: 10
+  duration: 30
+  percentDamagePerSecond: 50
+  damageInterval: 1
 --- !u!1 &1256525241
 GameObject:
   m_ObjectHideFlags: 0
