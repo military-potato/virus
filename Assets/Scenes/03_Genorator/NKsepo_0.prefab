@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1479405537771835670}
   - component: {fileID: 4488180934551786605}
   - component: {fileID: 3734654707398844117}
-  - component: {fileID: 8113096377739419281}
   m_Layer: 6
   m_Name: NKsepo_0
   m_TagString: Ally
@@ -134,53 +133,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NKSkill
   maxHealth: 1000
-  moveSpeed: 0
+  moveSpeed: 20
   detectRange: 20
   damage: 5
   attackRate: 200
   produceCost: 10
   produceCooldown: 3
-  radius: 2
+  radius: 10
   currentState: 0
   verticalRatio: 0.7
   attackRange: 1.5
-  hojunguPrefab: {fileID: 8485866012915783785, guid: e9db00132a54d134c9d105af203bb7e9, type: 3}
+  hojunguPrefab: {fileID: 8485866012915783785, guid: 72faafd7b21c1b046969fcfe6793fd9a, type: 3}
   firstSpawnTime: 15
   respawnTime: 30
   spawnOffsetDistance: 5
---- !u!58 &8113096377739419281
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8485866012915783785}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 2
