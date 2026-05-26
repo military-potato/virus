@@ -27,6 +27,6 @@ public class UnitSelect : MonoBehaviour
         }
 
         // AllySpawner에게 "이 유닛을 소환할 준비를 해라" 하고 넘겨줍니다.
-        allySpawn.Instance.SpawnUnitImmediate(unitPrefab);
+        allySpawn.Instance.SetSelectedUnit(unitPrefab);
     }
 }

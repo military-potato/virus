@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3717873632128508083}
   - component: {fileID: 2359268960998472711}
   - component: {fileID: 8553864806099462702}
+  - component: {fileID: -1882334431668302479}
   m_Layer: 7
   m_Name: normal_virus_0
   m_TagString: Enemy
@@ -120,7 +121,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &2359268960998472711
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -173,11 +174,47 @@ MonoBehaviour:
   moveSpeed: 10
   detectRange: 10
   damage: 10
-  attackRate: 0.5
+  attackRate: 1
   produceCost: 10
   produceCooldown: 3
-  radius: 10
+  radius: 2
   currentState: 0
   baseTarget: {fileID: 0}
   verticalRatio: 0.7
-  attackRange: 1.5
+  attackRange: 0.5
+--- !u!58 &-1882334431668302479
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348470013060651939}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2

@@ -146,8 +146,8 @@ RectTransform:
   m_GameObject: {fileID: 150050425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1699921771}
   - {fileID: 2013462930}
@@ -229,7 +229,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 150050426}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 661880452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -526,7 +526,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 419319788}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &661880453
@@ -739,7 +740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21f4ac7c15ed37438b10b9e3d537c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
-  targetSceneName: 
 --- !u!4 &904712310
 Transform:
   m_ObjectHideFlags: 0
@@ -980,7 +980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21f4ac7c15ed37438b10b9e3d537c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
-  targetSceneName: 
 --- !u!1 &1553700428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,9 +1201,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1699921775}
-        m_TargetAssemblyTypeName: CustomSceneChanger, Assembly-CSharp
-        m_MethodName: ChangeToTargetScene
+      - m_Target: {fileID: 904712309}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeToSampleScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1264,7 +1263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21f4ac7c15ed37438b10b9e3d537c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
-  targetSceneName: stage
 --- !u!1 &2013462929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,4 +1403,3 @@ SceneRoots:
   - {fileID: 661880452}
   - {fileID: 935550916}
   - {fileID: 904712310}
-  - {fileID: 419319788}
