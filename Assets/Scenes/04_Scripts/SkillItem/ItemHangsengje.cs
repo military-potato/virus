@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ItemAntibiotics : ItemBase
+public class ItemHangsengje : ItemBase
 {
     [Header("[ 항생제 DoT 설정 ]")]
     [Tooltip("초당 적 최대체력의 몇 %만큼 깎을 것인가? (0.05f면 초당 5% 피해)")]
@@ -24,11 +24,12 @@ public class ItemAntibiotics : ItemBase
     }
 
     // 💡여기에 코드를 추가했습니다! 버튼 이벤트 연결용 public 함수
-    public void OnButtonClick()
+    /*public void OnButtonClick()
     {
         // 버튼을 누르면 이 함수가 호출되고, 내부에서 실제 아이템 효과를 실행합니다.
-        ActivateItemEffect();
-    }
+        //ActivateItemEffect();
+        TryUse();
+    }*/
 
     private IEnumerator AntibioticsDamageRoutine()
     {
