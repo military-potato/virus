@@ -9,26 +9,38 @@ public abstract class ItemBase : SkillItemBase
     [Header("[ Duration Settings ]")]
     public float duration = 30f;        // 기획서: 모든 아이템 30초 지속
 
-    // 외부(UI 버튼 등)에서 사용 시 실행되는 최상위 로직 (부모의 Execute 오버라이드)
     protected override void Execute()
     {
+        // 🚨 [진단용 초강력 로그] 함수가 시작되자마자 무조건 찍혀야 합니다.
+        Debug.Log($"<color=yellow>★ [ItemBase] Execute() 진입 성공! 아이템 이름: {gameObject.name}</color>");
+
+        // 안전장치
+        if (StatusController.Instance == null)
+        {
+            Debug.LogError("ItemBase: 씬에 StatusController 인스턴스가 존재하지 않습니다!");
+            return;
+        }
+
+        Debug.Log($"[아이템 사용 시도] 차감 전 고통 수치: {StatusController.Instance.PainValue}, 필요 수치: {costPain}");
+
         // StatusController의 고통수치 검사 및 차감
         if (StatusController.Instance.TrySpendPain(costPain))
         {
-            // 내성 수치 감소 수치가 있다면 차감
+            Debug.Log($"[아이템 사용 성공] 고통 수치 차감 완료! 남은 고통 수치: {StatusController.Instance.PainValue}");
+
             if (reductionTolerance > 0)
             {
                 StatusController.Instance.SubTolerance(reductionTolerance);
             }
 
-            // 각 아이템 고유 효과 실행
             ActivateItemEffect();
-
-            // 쿨타임 가동
             StartCooldown();
+        }
+        else
+        {
+            Debug.LogWarning("[아이템 사용 실패] 고통 수치가 부족합니다.");
         }
     }
 
-    // 실제 아이템 고유의 효과 구현부 (자식들이 채워넣음)
     protected abstract void ActivateItemEffect();
 }

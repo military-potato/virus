@@ -143,7 +143,7 @@ MonoBehaviour:
   radius: 3
   currentState: 0
   verticalRatio: 0.7
-  attackRange: 3
+  attackRange: 8
   lifetime: 60
   deathDropInflammation: 5
   toxicDamage: 10
