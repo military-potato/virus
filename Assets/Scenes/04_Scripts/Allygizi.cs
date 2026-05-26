@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AllyUnit : UnitBase
+public class Allygizi : UnitBase
 {
     public enum State { Idle, Chasing, Attacking }
 
@@ -9,26 +9,24 @@ public class AllyUnit : UnitBase
     public float verticalRatio = 0.7f;  // 2.5D 수직 속도 보정값
 
     [Header("Combat Settings")]
-    public float attackRange = 1.5f;    // 멈춰서 공격할 사거리
+    public float attackRange = 1.5f;    // 무기 자체의 순수 사거리
 
     protected Transform currentTarget;
-    private float lastAttackTime;
     private Vector3 spawnPosition;      // 원래 대기하던 위치 기록용
-
-    // [추가] 분리된 연출 스크립트를 연결하기 위한 참조 변수
-    private CellActionFX actionFX;
+    private CellActionFX actionFX;      // 연출 스크립트 참조
 
     protected override void Start()
     {
         base.Start();
-        spawnPosition = transform.position; // 스폰된 위치를 집(대기소)으로 지정
-
-        // [추가] 내 몸뚱이에 함께 붙어있을 연출 컴포넌트를 가져옵니다.
+        spawnPosition = transform.position; 
         actionFX = GetComponent<CellActionFX>();
     }
 
     protected override void Update()
     {
+        // ★ [중요] 부모(UnitBase)의 Update를 실행시켜 attackCooldown 시계를 매 프레임 정상적으로 깎습니다.
+        base.Update(); 
+
         // 1. 적 탐색 및 상태 업데이트
         FindClosestEnemy();
         UpdateState();
@@ -39,7 +37,6 @@ public class AllyUnit : UnitBase
 
     protected virtual void FindClosestEnemy()
     {
-        // "Enemy" 태그를 가진 모든 적 오브젝트 탐색
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
@@ -48,7 +45,6 @@ public class AllyUnit : UnitBase
         {
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
 
-            // UnitBase의 detectRange(인식 범위) 내에 있는지 확인
             if (distance < shortestDistance && distance <= detectRange)
             {
                 shortestDistance = distance;
@@ -56,7 +52,6 @@ public class AllyUnit : UnitBase
             }
         }
 
-        // 범위 내 적이 있다면 추적, 없으면 제자리(혹은 스폰 위치)로 복귀
         if (nearestEnemy != null)
         {
             currentTarget = nearestEnemy.transform;
@@ -71,14 +66,24 @@ public class AllyUnit : UnitBase
 
     protected void UpdateState()
     {
-        if (attackCooldown > 0)
-            attackCooldown -= Time.deltaTime;
-        
         if (currentTarget == null) return;
 
+        // 1. 중심점 간의 거리 계산
         float distance = Vector2.Distance(transform.position, currentTarget.position);
 
-        if (distance <= attackRange)
+        // 2. 타겟의 반지름 값 가져오기
+        float targetRadius = 0f;
+        UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();
+        if (targetUnit != null)
+        {
+            targetRadius = targetUnit.radius;
+        }
+
+        // 3. ★ 아군 유닛에도 [외곽 정지 공식] 동적 적용
+        float stopDistance = this.radius + targetRadius + attackRange;
+
+        // 4. 거리에 따른 상태 전환
+        if (distance <= stopDistance)
         {
             currentState = State.Attacking;
         }
@@ -90,10 +95,8 @@ public class AllyUnit : UnitBase
 
     protected void HandleAction()
     {
-        // 1. 대기 상태 (적이 없을 때)
         if (currentState == State.Idle)
         {
-            // 원래 스폰되었던 자리로 복귀하는 로직 (기지 주변을 지키게 함)
             float distToSpawn = Vector2.Distance(transform.position, spawnPosition);
             if (distToSpawn > 0.2f)
             {
@@ -104,23 +107,19 @@ public class AllyUnit : UnitBase
             return;
         }
 
-        // 2. 공격 상태
         if (currentState == State.Attacking)
         {
             if (currentTarget == null) return;
 
-            // 부모(UnitBase)가 깎아주는 쿨타임 타이머가 0 이하가 되었는지 확인
+            // 부모(UnitBase)가 깎아놓은 타이머가 0 이하인지 확인
             if (attackCooldown <= 0)
             {
                 AttackTarget();
-
-                // 공격 후, 부모가 가진 attackRate(공격 간격) 수치로 타이머를 다시 채웁니다!
-                attackCooldown = attackRate;
+                attackCooldown = attackRate; // 쿨타임 리셋
             }
             return;
         }
 
-        // 3. 추적 상태 (이동)
         if (currentState == State.Chasing && currentTarget != null)
         {
             Vector3 dir = (currentTarget.position - transform.position).normalized;
@@ -133,13 +132,11 @@ public class AllyUnit : UnitBase
     {
         if (currentTarget == null) return;
 
-        // [신호 연동] 공격 주기가 도래하여 때리는 타이밍에 분리된 연출 컴포넌트로 타겟 정보를 토스합니다.
         if (actionFX != null)
         {
             actionFX.PlayBodySlam(currentTarget);
         }
 
-        // 상대방의 UnitBase 컴포넌트를 가져와서 데미지를 줍니다.
         UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();
         if (targetUnit != null)
         {
@@ -151,9 +148,29 @@ public class AllyUnit : UnitBase
     protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, detectRange); // 인식 범위 (초록색)
+        Gizmos.DrawWireSphere(transform.position, detectRange);
 
+        // 기즈모도 내 반지름을 포함한 기본 저지선 범위를 그리도록 시각화 보정
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange); // 공격 사거리 (빨간색)
+        Gizmos.DrawWireSphere(transform.position, radius + attackRange); 
+    }
+    // 만약 부모(UnitBase)에 데미지를 받거나 죽는 가상 함수가 있다면 오버라이드합니다.
+    // (부모 스크립트의 죽는 함수 이름이 'Die' 또는 'OnDeath'인지 확인해 보세요!)
+    public override void TakeDamage(float amount)
+    {
+        // 부모의 원래 데미지 계산(체력 감소 등)을 먼저 실행
+        base.TakeDamage(amount);
+
+        // 만약 부모에 구현된 현재 체력 변수(예: currentHp 등)가 0 이하가 되었다면
+        // 체력 변수 이름은 프로젝트에 맞게 수정하셔야 합니다! (예: hp, currentHealth 등)
+        if (currentHealth <= 0) 
+        {
+            // 전역에 있는 GameOverManager를 찾아서 게임오버를 터뜨립니다.
+            gameover gameOverManager = FindObjectOfType<gameover>();
+            if (gameOverManager != null)
+            {
+                gameOverManager.TriggerGameOver();
+            }
+        }
     }
 }
