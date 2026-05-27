@@ -15,16 +15,12 @@ public class AllyUnit : UnitBase
     private float lastAttackTime;
     private Vector3 spawnPosition;      // 원래 대기하던 위치 기록용
 
-    // [추가] 분리된 연출 스크립트를 연결하기 위한 참조 변수
-    private CellActionFX actionFX;
 
     protected override void Start()
     {
         base.Start();
         spawnPosition = transform.position; // 스폰된 위치를 집(대기소)으로 지정
 
-        // [추가] 내 몸뚱이에 함께 붙어있을 연출 컴포넌트를 가져옵니다.
-        actionFX = GetComponent<CellActionFX>();
     }
 
     protected override void Update()
@@ -132,12 +128,6 @@ public class AllyUnit : UnitBase
     protected void AttackTarget()
     {
         if (currentTarget == null) return;
-
-        // [신호 연동] 공격 주기가 도래하여 때리는 타이밍에 분리된 연출 컴포넌트로 타겟 정보를 토스합니다.
-        if (actionFX != null)
-        {
-            actionFX.PlayBodySlam(currentTarget);
-        }
 
         // 상대방의 UnitBase 컴포넌트를 가져와서 데미지를 줍니다.
         UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();

@@ -13,13 +13,11 @@ public class Allygizi : UnitBase
 
     protected Transform currentTarget;
     private Vector3 spawnPosition;      // 원래 대기하던 위치 기록용
-    private CellActionFX actionFX;      // 연출 스크립트 참조
 
     protected override void Start()
     {
         base.Start();
         spawnPosition = transform.position; 
-        actionFX = GetComponent<CellActionFX>();
     }
 
     protected override void Update()
@@ -131,11 +129,6 @@ public class Allygizi : UnitBase
     protected void AttackTarget()
     {
         if (currentTarget == null) return;
-
-        if (actionFX != null)
-        {
-            actionFX.PlayBodySlam(currentTarget);
-        }
 
         UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();
         if (targetUnit != null)
