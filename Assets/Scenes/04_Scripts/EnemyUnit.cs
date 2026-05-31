@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyUnit : UnitBase
 {
-
     public enum State { MoveToGoal, Chasing, Attacking }
 
     [Header("AI Settings")]
@@ -13,10 +12,7 @@ public class EnemyUnit : UnitBase
     [Header("Combat Settings")]
     public float attackRange = 1.5f;
 
-
-
     private float lastAttackTime;       // 마지막 공격 시간 기록 - 추가
-
     private Transform currentTarget;
 
     // 부모인 UnitBase의 Start()를 실행하면서 추가 설정 진행
@@ -40,6 +36,7 @@ public class EnemyUnit : UnitBase
     {
         if (attackCooldown > 0)
             attackCooldown -= Time.deltaTime;
+        
         // 기지가 설정되지 않았다면 로직을 실행하지 않음
         if (baseTarget == null)
         {
@@ -104,7 +101,6 @@ public class EnemyUnit : UnitBase
         }
         else
         {
-
             // 임시 예외 처리: 타겟이 기지일 경우 대략적인 기지 반지름 지정
             if (currentTarget == baseTarget.transform)
             {
@@ -166,15 +162,18 @@ public class EnemyUnit : UnitBase
         }
     }
 
-    // 에디터에서 범위를 시각적으로 보여주는 기즈모
-    protected void OnDrawGizmosSelected()
+    // ================= [핵심 추가 부분] =================
+    // 부모(UnitBase)의 사멸 함수를 적군용으로 재정의합니다.
+    protected override void Die()
     {
-        // 1. 노란색 원: 아군을 포착하는 센서 범위 (UnitBase의 detectRange)
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectRange);
+        // 씬이 플레이 중이고, 웨이브 매니저(EnemySpawn)가 존재하는지 확인
+        if (Application.isPlaying && EnemySpawn.Instance != null)
+        {
+            // [중요] 죽을 때 현재 살아있는 적의 숫자를 하나 줄입니다.
+            EnemySpawn.Instance.aliveEnemyCount--;
+        }
 
-        // 2. 빨간색 원: 타겟 앞에서 멈추는 공격 사거리 범위 (attackRange)
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        // 부모 클래스의 원래 Die() 로직(Destroy(gameObject))을 실행합니다.
+        base.Die();
     }
 }

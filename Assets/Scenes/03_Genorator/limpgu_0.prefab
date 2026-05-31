@@ -140,10 +140,10 @@ MonoBehaviour:
   attackRate: 0
   produceCost: 10
   produceCooldown: 3
-  radius: 4
+  radius: 2
   currentState: 0
   verticalRatio: 0.7
-  attackRange: 0.5
+  attackRange: 1
   resistanceAmount: 10
   firstProductionTime: 15
   reproductionTime: 30

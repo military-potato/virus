@@ -148,11 +148,11 @@ MonoBehaviour:
   attackRate: 0
   produceCost: 0
   produceCooldown: 0
-  radius: 3
+  radius: 2
   currentState: 0
   baseTarget: {fileID: 0}
   verticalRatio: 0.7
-  attackRange: 1.5
+  attackRange: 1
   powerfulVirusPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
   firstSpawnTime: 15
   respawnTime: 30

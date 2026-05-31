@@ -112,11 +112,11 @@ MonoBehaviour:
   attackRate: 0
   produceCost: 10
   produceCooldown: 3
-  radius: 10
+  radius: 2
   currentState: 0
   baseTarget: {fileID: 0}
   verticalRatio: 0.7
-  attackRange: 1.5
+  attackRange: 1
   combinedCellPrefab: {fileID: 3485345870305488431}
   firstCloneTime: 15
   recloneTime: 30

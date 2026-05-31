@@ -170,14 +170,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   maxHealth: 100
-  moveSpeed: 10
+  moveSpeed: 5
   detectRange: 10
   damage: 10
   attackRate: 0.5
   produceCost: 10
   produceCooldown: 3
-  radius: 4
+  radius: 2
   currentState: 0
   baseTarget: {fileID: 0}
   verticalRatio: 0.7
-  attackRange: 5
+  attackRange: 1

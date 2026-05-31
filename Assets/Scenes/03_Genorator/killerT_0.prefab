@@ -140,10 +140,10 @@ MonoBehaviour:
   attackRate: 3
   produceCost: 40
   produceCooldown: 3
-  radius: 4
+  radius: 2
   currentState: 0
   verticalRatio: 0.7
-  attackRange: 0.5
+  attackRange: 1
 --- !u!58 &-1038598709212139629
 CircleCollider2D:
   m_ObjectHideFlags: 0

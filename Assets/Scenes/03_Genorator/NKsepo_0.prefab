@@ -140,11 +140,11 @@ MonoBehaviour:
   attackRate: 200
   produceCost: 10
   produceCooldown: 3
-  radius: 3
+  radius: 2
   currentState: 0
   verticalRatio: 0.7
-  attackRange: 0.5
-  hojunguPrefab: {fileID: 8485866012915783785, guid: 72faafd7b21c1b046969fcfe6793fd9a, type: 3}
+  attackRange: 1
+  hojunguPrefab: {fileID: 8485866012915783785, guid: e9db00132a54d134c9d105af203bb7e9, type: 3}
   firstSpawnTime: 15
   respawnTime: 30
   spawnOffsetDistance: 5
