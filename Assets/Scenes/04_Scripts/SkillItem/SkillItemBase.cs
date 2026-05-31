@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections; // 💡 코루틴 사용을 위해 필수 추가
+using System.Collections;
 
 public abstract class SkillItemBase : MonoBehaviour
 {
@@ -7,9 +7,9 @@ public abstract class SkillItemBase : MonoBehaviour
     public string nameString;
     [TextArea] public string description;
 
-    // --- [ 원본 유지 외 추가된 연출 세팅 ] ---
+    // ------------ [ 연출 세팅 ] -------------
     [Header("[ Click Animation Settings ]")]
-    [SerializeField] private float shrinkScale = 0.85f;  // 클릭했을 때 작아질 크기 비율 (기본 85%)
+    [SerializeField] private float shrinkScale = 0.85f;   // 클릭했을 때 작아질 크기 비율 (기본 85%)
     [SerializeField] private float shrinkDuration = 0.1f; // 작아지는 데 걸리는 시간(초)
     [SerializeField] private float returnDuration = 0.1f; // 원래대로 돌아오는 데 걸리는 시간(초)
     private Vector3 originalScale;                        // 버튼의 원래 크기 기억용 변수
@@ -21,7 +21,7 @@ public abstract class SkillItemBase : MonoBehaviour
     protected float currentCooldown = 0f;
     protected bool isCooldown = false;
 
-    // 💡 [연출용 추가] 최상위 부모이므로 Awake를 정의하여 원래 크기를 기억하게 합니다.
+    // 원래 크기
     protected virtual void Awake()
     {
         originalScale = transform.localScale;
@@ -49,7 +49,7 @@ public abstract class SkillItemBase : MonoBehaviour
             return;
         }
 
-        // 💡 [추가된 연출 로직] 쿨타임이 아닐 때만 시각 애니메이션을 발동시킵니다.
+        // 쿨타임이 아닐 때만 발동
         if (activeScaleCoroutine != null) StopCoroutine(activeScaleCoroutine);
         activeScaleCoroutine = StartCoroutine(ClickScaleRoutine());
 
@@ -66,7 +66,7 @@ public abstract class SkillItemBase : MonoBehaviour
         isCooldown = true;
     }
 
-    // 💡 [추가된 핵심 기능] 버튼이 부드럽게 줄어들었다가 원래대로 돌아오는 시각 연출 코루틴
+    // 버튼이 부드럽게 줄어들었다가 원래대로 돌아오는 시각 연출
     private IEnumerator ClickScaleRoutine()
     {
         Vector3 targetShrinkScale = originalScale * shrinkScale;

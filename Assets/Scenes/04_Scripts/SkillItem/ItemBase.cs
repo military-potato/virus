@@ -11,7 +11,7 @@ public abstract class ItemBase : SkillItemBase
 
     protected override void Execute()
     {
-        // 🚨 [진단용 초강력 로그] 함수가 시작되자마자 무조건 찍혀야 합니다.
+        // 함수가 시작되자마자 무조건 찍혀야 하는 로그
         Debug.Log($"<color=yellow>★ [ItemBase] Execute() 진입 성공! 아이템 이름: {gameObject.name}</color>");
 
         // 안전장치

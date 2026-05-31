@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class KillerTSkill : AllyUnit
 {
-    // 킬러 T 세포는 부모(AllyUnit -> UnitBase)의 스탯과 전투 메커니즘을 그대로 상속받습니다.
-    // 인스펙터 창에서 Max Health, Move Speed, Damage 등을 자유롭게 조절하시면 됩니다.
+    // 킬러 T 세포는 부모(AllyUnit -> UnitBase)의 스탯과 전투 메커니즘 상속받음
+    // 인스펙터 창에서 Max Health, Move Speed, Damage 등 조절함
 
     protected override void Start()
     {
@@ -14,7 +14,7 @@ public class KillerTSkill : AllyUnit
 
 
 
-    // ★ 핵심 기획: 특정 적(change_sepo)을 공격하지 않도록 탐색 함수를 오버라이드(재정의)합니다.
+    // 특정 적(change_sepo)을 공격하지 않도록 탐색 함수를 오버라이드(재정의)
     protected override void FindClosestEnemy()
     {
         // "Enemy" 태그를 가진 모든 적 오브젝트 탐색
@@ -26,7 +26,7 @@ public class KillerTSkill : AllyUnit
         {
             if (enemy == null) continue;
 
-            // 🔥 [기획 반영] 적의 이름에 "change_sepo"가 포함되어 있다면 타겟팅 후보에서 완전히 제외(패스)합니다.
+            // 적의 이름에 "change_sepo"가 포함되어 있다면 타겟팅 후보에서 완전히 제외(패스)
             if (enemy.name.Contains("change_sepo"))
             {
                 continue;

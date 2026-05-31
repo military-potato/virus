@@ -11,7 +11,7 @@ public class TabGroupController : MonoBehaviour
     }
 
     [Header("Tab Group Register")]
-    [SerializeField] private TabGroup[] allTabs; // [수정] 탭들을 배열로 관리하여 수동 누락을 방지합니다.
+    [SerializeField] private TabGroup[] allTabs; // 탭들을 배열로 관리하여 수동 누락을 방지
 
     private void Start()
     {
@@ -22,12 +22,12 @@ public class TabGroupController : MonoBehaviour
         }
     }
 
-    // 하위 호환성을 위해 기존 메서드 명칭과 기능을 그대로 유지합니다.
-    public void SelectBlueTab() { SelectTab(0); }
-    public void SelectOrangeTab() { SelectTab(1); }
-    public void SelectGreenTab() { SelectTab(2); } // [추가] 초록색 스킬 바 메서드
+    // 하위 호환성을 위해 기존 메서드 명칭과 기능을 그대로 유지
+    public void SelectBlueTab() { SelectTab(0); } // 파란색 스킬 바 메서드
+    public void SelectOrangeTab() { SelectTab(1); } // 주황색 스킬 바 메서드
+    public void SelectGreenTab() { SelectTab(2); } // 초록색 스킬 바 메서드
 
-    // [핵심 로직] 선택된 인덱스에 따라 모든 탭의 레이어와 콘텐츠를 유기적으로 제어합니다.
+    // 선택된 인덱스에 따라 모든 탭의 레이어와 요소 제어
     private void SelectTab(int targetIndex)
     {
         if (allTabs == null || targetIndex < 0 || targetIndex >= allTabs.Length) return;
@@ -61,7 +61,7 @@ public class TabGroupController : MonoBehaviour
         }
     }
 
-    // 내부 자식 스프라이트들의 레이어를 일괄 변경하는 유틸리티 메서드
+    // 내부 자식 스프라이트들의 레이어를 일괄 변경하는 메서드
     private void SetChildrenSpritesLayer(GameObject parent, SpriteRenderer rootBar, int order)
     {
         SpriteRenderer[] sprites = parent.GetComponentsInChildren<SpriteRenderer>(true);

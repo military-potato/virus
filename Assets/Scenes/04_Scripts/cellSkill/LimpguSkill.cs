@@ -3,13 +3,13 @@ using UnityEngine;
 public class LymphocyteSkill : AllyUnit
 {
     [Header("Lymphocyte Production Settings")]
-    public float resistanceAmount = 10f;       // 내성수치 생산량
+    public float resistanceAmount = 10f;      // 내성수치 생산량
     public float firstProductionTime = 15f;   // 첫 내성수치 생산 시간 (15초)
     public float reproductionTime = 30f;      // 이후 내성수치 재생산 시간 (30초)
 
     [Header("Evade AI Settings (생산 유닛 메커니즘)")]
     public float evadeRangeMultiplier = 6f;   // 감지 범위 배율 (반지름 크기 radius의 6배 = 6UR)
-    public float pingInterval = 0.5f;          // 몇 초마다 도망칠 좌표를 갱신할 것인가
+    public float pingInterval = 0.5f;         // 몇 초마다 도망칠 좌표를 갱신할 것인가
     public float pingDistance = 3.0f;         // 한 번 좌표를 찍을 때 얼마나 멀리 찍을 것인가
 
     private float productionTimer;
@@ -44,7 +44,7 @@ public class LymphocyteSkill : AllyUnit
         pingUpdateTimer = 0f;
     }
 
-    // ★ 부모의 Update를 완전히 오버라이드하여, 적에게 돌격하는 일반 공격 AI를 끄고 회피 AI를 구동합니다.
+    // 부모의 Update를 완전히 오버라이드하여, 적에게 돌격하는 일반 공격을 끄고 회피 실행
     protected override void Update()
     {
         if (!isInitialized) return;
@@ -60,21 +60,21 @@ public class LymphocyteSkill : AllyUnit
     {
         pingUpdateTimer -= Time.deltaTime;
 
-        // 지정된 주기(pingInterval, 예: 0.5초)마다 주변 적을 탐색해 안전한 좌표(핑)를 새로 계산합니다.
+        // 지정된 주기(pingInterval, 예: 0.5초)마다 주변 적을 탐색해 안전한 좌표(핑)를 새로 계산
         if (pingUpdateTimer <= 0f)
         {
             pingUpdateTimer = pingInterval;
             CalculateEscapePing();
         }
 
-        // 3. 찍힌 핑(목적지)을 향해 2.5D 보정 속도로 이동합니다.
+        // 3. 찍힌 핑(목적지)을 향해 2.5D 보정 속도로 이동
         if (isEvading)
         {
             Vector3 dir = (targetPingPosition - transform.position).normalized;
             Vector3 velocity = new Vector3(dir.x, dir.y * verticalRatio, 0);
             transform.position += velocity * moveSpeed * Time.deltaTime;
 
-            // 목적지에 거의 도달했다면 회피 모드 일시 정지
+            // 목적지에 거의 도달했다면 회피 끄기
             if (Vector2.Distance(transform.position, targetPingPosition) < 0.2f)
             {
                 isEvading = false;
@@ -82,7 +82,7 @@ public class LymphocyteSkill : AllyUnit
         }
     }
 
-    // ★ 수정된 핑 계산 함수 (태그 대신 스크립트 검사)
+    // 핑 계산 함수 (스크립트 검사)
     private void CalculateEscapePing()
     {
         float detectRadius = radius * evadeRangeMultiplier;
@@ -97,10 +97,10 @@ public class LymphocyteSkill : AllyUnit
         {
             if (collider == null) continue;
 
-            // 🔥 [핵심 수정] 태그 대신, 부딪힌 오브젝트에 EnemyUnit 스크립트가 붙어있는지 확인합니다!
+            // 부딪힌 오브젝트에 EnemyUnit 스크립트가 붙어있는지 확인
             EnemyUnit enemy = collider.GetComponent<EnemyUnit>();
 
-            // EnemyUnit 스크립트를 가지고 있는 유닛이라면 적군으로 판정!
+            // EnemyUnit 스크립트를 가지고 있는 유닛이라면 적군으로 판단
             if (enemy != null)
             {
                 enemyCenterOfMass += (Vector2)collider.transform.position;
@@ -153,7 +153,7 @@ public class LymphocyteSkill : AllyUnit
         }
     }
 
-    // 에디터 뷰에서 6UR 회피 감지 범위를 시각적으로 확인 (선택 시 하늘색 원 표시)
+    // 에디터 창에서 6UR 회피 감지 범위를 시각적으로 확인 (선택 시 하늘색 원 표시)
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;

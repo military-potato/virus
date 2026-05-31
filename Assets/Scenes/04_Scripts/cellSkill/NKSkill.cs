@@ -15,11 +15,11 @@ public class NKSkill : AllyUnit
     {
         base.Start();
 
-        // 기획서: 첫 소환 시간은 15초로 시계를 맞춥니다.
+        // 첫 소환 시간은 15초로 시계를 맞춤
         spawnTimer = firstSpawnTime;
     }
 
-    // 부모(AllyUnit)의 Update 로직(AI 탐색, 이동, 공격)을 그대로 유지하면서 호중구 소환 타이머만 추가합니다.
+    // 부모(AllyUnit)의 Update 로직(AI 탐색, 이동, 공격)을 그대로 유지하면서 호중구 소환 타이머만 추가
     protected override void Update()
     {
         base.Update(); // 부모의 AI 전투/추적 메커니즘 실행
@@ -36,10 +36,10 @@ public class NKSkill : AllyUnit
 
             if (spawnTimer <= 0)
             {
-                // 호중구 2마리 소환 실행!
+                // 호중구 2마리 소환
                 SpawnHojunguUnits();
 
-                // ★ 기획서 반영: 첫 소환(15초)이 끝났으므로, 다음부터는 재생성 시간(30초)으로 시계를 맞춥니다.
+                // 첫 소환(15초) 후 재생성 시간(30초)으로 시계 맞춤
                 spawnTimer = respawnTime;
             }
         }

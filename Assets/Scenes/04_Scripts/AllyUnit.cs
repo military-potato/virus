@@ -110,7 +110,7 @@ public class AllyUnit : UnitBase
             {
                 AttackTarget();
 
-                // 공격 후, 부모가 가진 attackRate(공격 간격) 수치로 타이머를 다시 채웁니다!
+                // 공격 후, 부모가 가진 attackRate(공격 간격) 수치로 타이머를 다시 채움
                 attackCooldown = attackRate;
             }
             return;
@@ -129,7 +129,7 @@ public class AllyUnit : UnitBase
     {
         if (currentTarget == null) return;
 
-        // 상대방의 UnitBase 컴포넌트를 가져와서 데미지를 줍니다.
+        // 상대방의 UnitBase 컴포넌트를 가져와서 데미지를 줌
         UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();
         if (targetUnit != null)
         {

@@ -22,7 +22,7 @@ public class Allygizi : UnitBase
 
     protected override void Update()
     {
-        // ★ [중요] 부모(UnitBase)의 Update를 실행시켜 attackCooldown 시계를 매 프레임 정상적으로 깎습니다.
+        // 부모(UnitBase)의 Update를 실행시켜 attackCooldown 시계를 매 프레임 깎음
         base.Update(); 
 
         // 1. 적 탐색 및 상태 업데이트
@@ -77,7 +77,7 @@ public class Allygizi : UnitBase
             targetRadius = targetUnit.radius;
         }
 
-        // 3. ★ 아군 유닛에도 [외곽 정지 공식] 동적 적용
+        // 3. 아군 유닛에도 [외곽 정지 공식] 동적 적용
         float stopDistance = this.radius + targetRadius + attackRange;
 
         // 4. 거리에 따른 상태 전환
@@ -147,18 +147,18 @@ public class Allygizi : UnitBase
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius + attackRange); 
     }
-    // 만약 부모(UnitBase)에 데미지를 받거나 죽는 가상 함수가 있다면 오버라이드합니다.
-    // (부모 스크립트의 죽는 함수 이름이 'Die' 또는 'OnDeath'인지 확인해 보세요!)
+    // 만약 부모(UnitBase)에 데미지를 받거나 죽는 가상 함수가 있다면 오버라이드
+    // (부모 스크립트의 죽는 함수 이름이 'Die' 또는 'OnDeath'인지 확인)
     public override void TakeDamage(float amount)
     {
         // 부모의 원래 데미지 계산(체력 감소 등)을 먼저 실행
         base.TakeDamage(amount);
 
         // 만약 부모에 구현된 현재 체력 변수(예: currentHp 등)가 0 이하가 되었다면
-        // 체력 변수 이름은 프로젝트에 맞게 수정하셔야 합니다! (예: hp, currentHealth 등)
+        // 체력 변수 이름은 수정할 것(예: hp, currentHealth)
         if (currentHealth <= 0) 
         {
-            // 전역에 있는 GameOverManager를 찾아서 게임오버를 터뜨립니다.
+            // 전역에 있는 GameOverManager를 찾아서 게임오버
             gameover gameOverManager = FindObjectOfType<gameover>();
             if (gameOverManager != null)
             {

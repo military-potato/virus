@@ -11,7 +11,7 @@ public class ItemHaeyeolje : ItemBase
         nameString = "해열제";
         description = "잠시동안 염증수치의 재화 소모율이 30%로 감소한다.";
 
-        // 기획서 반영용 기본 세팅 (인스펙터창에서 변경 가능)
+        // 기본 세팅 (인스펙터창에서 변경 가능)
         duration = 30f;
         cooldownTime = 50f;
     }

@@ -1,7 +1,5 @@
 using UnityEngine;
 
-
-// UnitBase를 상속받아 기본 체력, 속도, 사거리 변수를 그대로 활용합니다.
 public class EnemyUnit : UnitBase
 {
 
@@ -17,11 +15,11 @@ public class EnemyUnit : UnitBase
 
 
 
-    private float lastAttackTime;       // 마지막 공격 시간 기록 - 추가    // 1.0f 대신 인스펙터에서 조절 가능한 변수로 승격!
+    private float lastAttackTime;       // 마지막 공격 시간 기록 - 추가
 
     private Transform currentTarget;
 
-    // 부모인 UnitBase의 Start()를 실행하면서 추가 설정을 진행합니다.
+    // 부모인 UnitBase의 Start()를 실행하면서 추가 설정 진행
     protected override void Start()
     {
         base.Start(); // currentHealth = maxHealth 설정 실행
@@ -106,8 +104,7 @@ public class EnemyUnit : UnitBase
         }
         else
         {
-            // 만약 기지(gizi_0)에 UnitBase가 없고 콜라이더만 있다면?
-            // 기지의 CircleCollider2D 등을 활용하거나, 기지용 스크립트(UnitBase 상속)를 기지에 달아주는 것이 좋습니다.
+
             // 임시 예외 처리: 타겟이 기지일 경우 대략적인 기지 반지름 지정
             if (currentTarget == baseTarget.transform)
             {
@@ -138,18 +135,18 @@ public class EnemyUnit : UnitBase
 
         if (currentState == State.Attacking)
         {
-            // ★ [수정] 부모(UnitBase)가 Update에서 알아서 깎아주는 attackCooldown 시계가 0 이하가 되었는지 확인합니다.
+            // 부모(UnitBase)가 attackCooldown 시계가 0 이하인지 확인
             if (attackCooldown <= 0)
             {
                 AttackTarget();
 
-                // ★ [중요] 공격을 했으니, 인스펙터 창에서 설정한 Attack Rate(공격 간격) 수치로 쿨타임을 다시 가득 채워줍니다!
+                // 공격 후 인스펙터 창에서 설정한 Attack Rate(공격 간격) 수치로 쿨타임 다시 채움
                 attackCooldown = attackRate;
             }
             return;
         }
 
-        // [이동 상태] 방향 계산 및 2.5D 보정 (기존 코드 유지)
+        // [이동 상태] 방향 계산 및 2.5D 보정
         Vector3 dir = (currentTarget.position - transform.position).normalized;
         Vector3 velocity = new Vector3(dir.x, dir.y * verticalRatio, 0);
 

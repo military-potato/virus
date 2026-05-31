@@ -17,7 +17,7 @@ public class OverGrowSkill : EnemyUnit
         // 부모(EnemyUnit -> UnitBase)의 초기화 실행 (중앙 기지 타겟 탐색 및 체력 설정)
         base.Start();
 
-        // 기획서 반영: 첫 시계는 15초로 맞춥니다.
+        // 첫 시계는 15초로 맞춤
         spawnTimer = firstSpawnTime;
     }
 
@@ -38,10 +38,10 @@ public class OverGrowSkill : EnemyUnit
 
             if (spawnTimer <= 0)
             {
-                // 강력 바이러스 2마리 양옆 소환!
+                // 강력 바이러스 2마리 양옆 소환
                 SpawnPowerfulViruses();
 
-                // 기획서 반영: 재생산 시간(30초)으로 타이머 리셋
+                // 재생산 시간(30초)으로 타이머 리셋
                 spawnTimer = respawnTime;
             }
         }
@@ -57,10 +57,7 @@ public class OverGrowSkill : EnemyUnit
 
         Debug.Log("[과성장 숙주세포 능력 발동] 양옆에 강력 바이러스를 1마리씩, 총 2마리 소환합니다!");
 
-        // ➔ 질문하신 생성위치 벡터 계산:
-        // 2.5D 탑다운/사이드 뷰 게임에서 유닛 기준의 '양옆'은 월드 좌표계의 좌/우(X축) 벡터를 활용하는 것이 가장 안정적입니다.
-        // 숙주세포는 체력이 7이나 되는 거대 유닛이므로, 소환된 바이러스가 숙주 몸통(Collider)에 끼여 
-        // 툭 튕겨나가는 버그를 막기 위해 Vector3.right(오른쪽)와 Vector3.left(왼쪽)에 거리 배율을 곱해줍니다.
+        // 생성위치 벡터 계산:
         Vector3 rightOffset = Vector3.right * spawnOffsetDistance;
         Vector3 leftOffset = Vector3.left * spawnOffsetDistance;
 

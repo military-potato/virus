@@ -11,8 +11,8 @@ public class HojunguSkill : AllyUnit
     public float toxicRangeMultiplier = 3f;  // 피해 범위 (반지름 크기 radius의 3배 = 3UR)
 
     [Header("Visual Effects")]
-    public GameObject toxicEffectPrefab;     // ★ 추가: 사멸 시 생성할 독성 이미지 프리팹
-    public float effectDuration = 2f;        // ★ 추가: 이미지 지속시간 2초
+    public GameObject toxicEffectPrefab;     // 사멸 시 생성할 독성 이미지 프리팹
+    public float effectDuration = 2f;        // 이미지 지속시간 2초
 
     private float survivalTimer;
     private bool isDead = false; // 중복 사멸 방지 플래그
@@ -23,7 +23,6 @@ public class HojunguSkill : AllyUnit
         survivalTimer = lifetime;
     }
 
-    // ★ void Update() 대신 protected override void Update()를 사용하여 하단 노란색 경고(CS0114)를 해결합니다.
     protected override void Update()
     {
         // 1. AllyUnit의 기존 AI 로직 수행 (탐색, 추적, 공격)
@@ -60,12 +59,12 @@ public class HojunguSkill : AllyUnit
 
     private void ExplodeToxicFluid()
     {
-        // 기획서: 피해범위 3UR (유닛 반지름 radius * 3)
+        // 피해범위 3UR (유닛 반지름 radius * 3)
         float explosionRadius = radius * toxicRangeMultiplier;
 
         Debug.Log($"[호중구 사멸] 독성 체액 폭발! 범위: {explosionRadius}");
 
-        // ★★★ [핵심 수정] 누락되었던 독성 체액 이미지를 화면에 생성하고 2초 뒤 삭제하는 로직입니다.
+        // 독성 체액 이미지를 화면에 생성하고 2초 뒤 삭제하는 로직
         if (toxicEffectPrefab != null)
         {
             // 호중구가 있던 자리에 독성 이펙트 프리팹 생성

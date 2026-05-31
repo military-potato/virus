@@ -4,8 +4,6 @@ public class allySpawn : MonoBehaviour
 {
     public static allySpawn Instance { get; private set; }
 
-    // 이제 보편적으로 '기지 주변 소환'을 기본으로 사용하므로 메커니즘을 단순화하거나 
-    // 기지 소환 전용으로 활용할 수 있습니다.
     [Header("[ Base Settings ]")]
     public Transform giziTransform; // 기지 위치
 
@@ -26,14 +24,13 @@ public class allySpawn : MonoBehaviour
 
     void Update()
     {
-        // 쿨타임은 매 프레임 계속 깎아줍니다.
+        // 쿨타임은 매 프레임 계속 깎음
         if (spawnTimer > 0) spawnTimer -= Time.deltaTime;
     }
 
-    /// <summary>
-    /// UI 버튼에 연결할 함수입니다. 
-    /// 버튼을 누르면 장전 단계를 거치지 않고 '즉시 소환'을 시도합니다.
-    /// </summary>
+    // UI 버튼에 연결할 함수 
+    // 버튼을 누르면 쿨타임 없이 즉시 소환을 시도함.
+ 
     public void SpawnUnitImmediate(GameObject unitPrefab)
     {
         if (unitPrefab == null) return;
@@ -57,7 +54,7 @@ public class allySpawn : MonoBehaviour
     
         if (StatusController.Instance.TrySpendInflammation(cost))
         {
-            // 코스트 차감 성공 시 바로 위치 계산 후 소환!
+            // 코스트 차감 성공 시 바로 위치 계산 후 소환
             ExecuteImmediateSpawn(unitPrefab);
             
             // 프리팹에 설정된 쿨타임 적용
@@ -65,9 +62,9 @@ public class allySpawn : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 기지 주변 무작위 위치를 계산하여 즉시 프리팹을 생성하는 함수
-    /// </summary>
+ 
+    // 기지 주변 무작위 위치를 계산하여 즉시 프리팹을 생성하는 함수
+  
     private void ExecuteImmediateSpawn(GameObject unitPrefab)
     {
         Vector3 finalSpawnPosition = Vector3.zero;
@@ -80,7 +77,7 @@ public class allySpawn : MonoBehaviour
         else
         {
             // 기지 주변 반경 내 무작위 스폰
-            Vector2 randomOffset = Random.insideUnitCircle * 30f; // 반경 수치는 원하시는 대로 조절하세요 (기존 30f은 너무 멀 수 있음)
+            Vector2 randomOffset = Random.insideUnitCircle * 30f; // 반경 수치
             finalSpawnPosition = giziTransform.position + new Vector3(randomOffset.x, randomOffset.y, 0);
         }
 

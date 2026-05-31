@@ -13,7 +13,7 @@ public class ItemHangsengje : ItemBase
         nameString = "항생제";
         description = "필드에 나와있는 모든 병원체(적)에게 지속적인 피해를 준다. 지속시간 내 새로 나온 적도 포함.";
 
-        // 기획서 반영용 기본 세팅 (인스펙터창에서 변경 가능)
+        // 기본 세팅 (인스펙터창에서 변경 가능)
         duration = 30f;
         cooldownTime = 50f;
     }
@@ -23,14 +23,6 @@ public class ItemHangsengje : ItemBase
         StartCoroutine(AntibioticsDamageRoutine());
     }
 
-    // 💡여기에 코드를 추가했습니다! 버튼 이벤트 연결용 public 함수
-    /*public void OnButtonClick()
-    {
-        // 버튼을 누르면 이 함수가 호출되고, 내부에서 실제 아이템 효과를 실행합니다.
-        //ActivateItemEffect();
-        TryUse();
-    }*/
-
     private IEnumerator AntibioticsDamageRoutine()
     {
         Debug.Log("<color=green><b>[아이템] 항생제 작동 시작!</b></color> 모든 병원체 최대 체력 비례 DoT 피해 가동.");
@@ -39,8 +31,7 @@ public class ItemHangsengje : ItemBase
         // 30초 지속시간에 도달할 때까지 루프 작동
         while (elapsed < duration)
         {
-            // 💡 [신버전 에러 해결] FindObjectsOfType 대신 FindObjectsByType 사용
-            // 틱이 돌 때마다 새로 감지하므로 중간에 새로 스폰된 적들도 실시간 적용됩니다!
+ 
             EnemyUnit[] currentEnemies = Object.FindObjectsByType<EnemyUnit>(FindObjectsSortMode.None);
 
             foreach (EnemyUnit enemy in currentEnemies)
