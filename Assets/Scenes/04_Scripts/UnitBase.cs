@@ -40,7 +40,11 @@ public class UnitBase : MonoBehaviour
             Die(); //사멸함수 발동
         }
     }
-
+    // 외부에서 현재 체력 값을 안전하게 읽어갈 수 있도록 돕는 public 함수
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
     protected virtual void Die()
     {
         Destroy(gameObject);  // 체력 0 이하 시 사멸
