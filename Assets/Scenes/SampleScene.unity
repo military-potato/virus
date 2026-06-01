@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21f4ac7c15ed37438b10b9e3d537c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomSceneChanger
-  targetSceneName: 
+  targetSceneName: SampleScene
 --- !u!114 &489520143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3927,7 +3927,7 @@ MonoBehaviour:
   warningPopup: {fileID: 0}
   popupDuration: 1
   isAutoIncreasing: 1
-  inflammationIncreaseAmount: 10
+  inflammationIncreaseAmount: 3
   painIncreaseAmount: 1
   increaseInterval: 1
 --- !u!212 &1055850456
@@ -4070,6 +4070,30 @@ MonoBehaviour:
       enemyPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
       spawnCount: 1
   - waveName: 2
+    enemyList:
+    - enemyName: n
+      enemyPrefab: {fileID: 6348470013060651939, guid: 6a284158c8249a24c8118a9139c3dae4, type: 3}
+      spawnCount: 8
+    - enemyName: s
+      enemyPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
+      spawnCount: 3
+  - waveName: 3
+    enemyList:
+    - enemyName: n
+      enemyPrefab: {fileID: 6348470013060651939, guid: 6a284158c8249a24c8118a9139c3dae4, type: 3}
+      spawnCount: 8
+    - enemyName: s
+      enemyPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
+      spawnCount: 3
+  - waveName: 4
+    enemyList:
+    - enemyName: n
+      enemyPrefab: {fileID: 6348470013060651939, guid: 6a284158c8249a24c8118a9139c3dae4, type: 3}
+      spawnCount: 8
+    - enemyName: s
+      enemyPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
+      spawnCount: 3
+  - waveName: 5
     enemyList:
     - enemyName: n
       enemyPrefab: {fileID: 6348470013060651939, guid: 6a284158c8249a24c8118a9139c3dae4, type: 3}
@@ -6474,7 +6498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f27394d22a8674e9f9dfd18ae8a46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Allygizi
-  maxHealth: 1000
+  maxHealth: 300
   moveSpeed: 0
   detectRange: 0
   damage: 0

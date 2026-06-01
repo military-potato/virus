@@ -172,7 +172,7 @@ MonoBehaviour:
   maxHealth: 100
   moveSpeed: 5
   detectRange: 10
-  damage: 10
+  damage: 15
   attackRate: 0.5
   produceCost: 10
   produceCooldown: 3

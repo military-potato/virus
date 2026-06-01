@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.45, y: -0.47, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 3.2499998}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 9}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,17 +133,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82512b9ae5778af4ca40a82491119046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LimpguSkill
-  maxHealth: 1
+  maxHealth: 375
   moveSpeed: 10
-  detectRange: 0
-  damage: 0
-  attackRate: 0
+  detectRange: 2
+  damage: 10
+  attackRate: 1
   produceCost: 10
-  produceCooldown: 3
+  produceCooldown: 0.5
   radius: 2
   currentState: 0
   verticalRatio: 0.7
-  attackRange: 1
+  attackRange: 1.8
   resistanceAmount: 10
   firstProductionTime: 15
   reproductionTime: 30

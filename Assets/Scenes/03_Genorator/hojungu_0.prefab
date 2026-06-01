@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4706821d6a7bbef41a6ec887e303a7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HojunguSkill
-  maxHealth: 30
-  moveSpeed: 10
+  maxHealth: 10
+  moveSpeed: 15
   detectRange: 30
   damage: 20
   attackRate: 0.5
@@ -143,13 +143,13 @@ MonoBehaviour:
   radius: 2
   currentState: 0
   verticalRatio: 0.7
-  attackRange: 1
-  lifetime: 60
+  attackRange: 3
+  lifetime: 15
   deathDropInflammation: 5
-  toxicDamage: 10
-  toxicRangeMultiplier: 3
+  toxicDamage: 50
+  toxicRangeMultiplier: 5
   toxicEffectPrefab: {fileID: 6797017951499698931, guid: 027ae16488d5746469ca5aa162b95544, type: 3}
-  effectDuration: 1
+  effectDuration: 2
 --- !u!58 &-6560324238566107348
 CircleCollider2D:
   m_ObjectHideFlags: 0

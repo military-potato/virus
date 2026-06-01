@@ -106,10 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889aab7e1205f074f91da79cf2f13e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  maxHealth: 100
+  maxHealth: 200
   moveSpeed: 2.5
-  detectRange: 20
-  damage: 0
+  detectRange: 25
+  damage: 30
   attackRate: 0.5
   produceCost: 10
   produceCooldown: 3

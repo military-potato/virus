@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.45, y: -0.47, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 3.2499998}
+  m_LocalScale: {x: 2.6, y: 2.6, z: 12.999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,19 +133,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e8b49327d731e419416d3a95a508af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NKSkill
-  maxHealth: 1000
-  moveSpeed: 20
+  maxHealth: 250
+  moveSpeed: 5
   detectRange: 20
   damage: 5
-  attackRate: 200
-  produceCost: 10
-  produceCooldown: 3
-  radius: 2
+  attackRate: 2
+  produceCost: 30
+  produceCooldown: 0.5
+  radius: 10
   currentState: 0
   verticalRatio: 0.7
-  attackRange: 1
+  attackRange: 3
   hojunguPrefab: {fileID: 8485866012915783785, guid: e9db00132a54d134c9d105af203bb7e9, type: 3}
-  firstSpawnTime: 15
+  firstSpawnTime: 7.5
   respawnTime: 30
   spawnOffsetDistance: 5
 --- !u!58 &5266401996377537515
