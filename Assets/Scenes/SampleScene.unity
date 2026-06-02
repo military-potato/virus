@@ -795,8 +795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
   itemSprite: {fileID: 6267291216923948644, guid: 7a0823f266c107a4a94ae89255f14ed4, type: 3}
   itemName: "\uD638\uC911\uAD6C"
-  itemDescription: "\uC6A9\uAC10\uD558\uACE0 \uAC15\uD55C\uCE5C\uAD6C \uD638\uC911\uAD6C.
-    \uADC0\uC5FD\uB2E4."
+  itemDescription: "\uC5FC\uC99D\uC218\uCE58: 10\n\uC8FD\uC73C\uBA74 \uC8FC\uBCC0
+    \uC801\uC5D0\uAC8C \uB370\uBBF8\uC9C0\uB97C \uC785\uD78C\uB2E4."
 --- !u!1 &210358878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,8 +1174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
   itemSprite: {fileID: -5683250954931383531, guid: a5547680f621fe54db9604c1135a94e6, type: 3}
   itemName: "\uB300\uC2DD\uC138\uD3EC"
-  itemDescription: "\uC798 \uBA39\uAC8C \uC0DD\uACBC\uC9C0\uB9CC \uC758\uC678\uB85C
-    \uD3B8\uC2DD\uC7C1\uC774."
+  itemDescription: "\uC5FC\uC99D\uC218\uCE58: 20\n\uC798 \uBA39\uAC8C \uC0DD\uACBC\uC9C0\uB9CC
+    \uC758\uC678\uB85C \uD3B8\uC2DD\uC7C1\uC774."
 --- !u!1 &434590819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,7 +1601,6 @@ GameObject:
   - component: {fileID: 494347664}
   - component: {fileID: 494347663}
   - component: {fileID: 494347666}
-  - component: {fileID: 494347667}
   - component: {fileID: 494347668}
   m_Layer: 0
   m_Name: 39.5
@@ -1805,22 +1804,6 @@ MonoBehaviour:
   upgradeCostInflammation: 3200000064000000
   cooldownTime: 10
   duration: 15
---- !u!114 &494347667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494347660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fabd62abc96c0e64ea21ee20e11c1ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitSelect
-  unitPrefab: {fileID: 494347660}
-  shrinkScale: 0.85
-  shrinkDuration: 0.1
-  returnDuration: 0.1
 --- !u!114 &494347668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,7 +2458,6 @@ GameObject:
   - component: {fileID: 616765878}
   - component: {fileID: 616765877}
   - component: {fileID: 616765881}
-  - component: {fileID: 616765882}
   - component: {fileID: 616765883}
   m_Layer: 0
   m_Name: hae
@@ -2693,22 +2675,6 @@ MonoBehaviour:
   costPain: 30
   reductionTolerance: 10
   duration: 30
---- !u!114 &616765882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616765875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fabd62abc96c0e64ea21ee20e11c1ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitSelect
-  unitPrefab: {fileID: 616765875}
-  shrinkScale: 0.85
-  shrinkDuration: 0.1
-  returnDuration: 0.1
 --- !u!114 &616765883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2723,9 +2689,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
   itemSprite: {fileID: 9103656482713568619, guid: 69f7e6fd518fdca4aa06ac81921823cb, type: 3}
   itemName: "\uD574\uC5F4\uC81C"
-  itemDescription: "\"\uBAA8\uB450 \uC9C4\uC815\uD574!\n        \uBD88 \uB044\uB7EC
-    \uC654\uB2E4!\"\r\n\uC5F4\uC744 \uB0B4\uB824 \uBAB8\uC18D \n\uC720\uB2DB\uB4E4\uC774
-    \uC815\uC0C1 \n\uC791\uB3D9 \uD558\uAC8C \uD55C\uB2E4."
+  itemDescription: "\uACE0\uD1B5\uC218\uCE58: 30\n\"\uBAA8\uB450 \uC9C4\uC815\uD574!\n       
+    \uBD88 \uB044\uB7EC \uC654\uB2E4!\"\r\n\uC7A0\uC2DC \uC7AC\uD654\uC18C\uBAA8\uB97C
+    \n30% \uAC10\uC18C\uC2DC\uD0A8\uB2E4."
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,9 +3394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
   itemSprite: {fileID: 8280121853360078944, guid: 08e3fb0e506cf094d8253969e56d7746, type: 3}
   itemName: "\uB9BC\uD504\uAD6C"
-  itemDescription: "\uC815\uBCF4 \uBD84\uC11D\uC774 \uC5ED\uD560\uC774\uC9C0\uB9CC
-    \uCD08\uBCF4\uB77C \n\uC11C\uD22C\uB978\uD3B8. \uBC1C\uC774 \n\uBE68\uB77C\uC11C
-    \uBF51\uD614\uB2E4. "
+  itemDescription: "\uC5FC\uC99D\uC218\uCE58: 10\n\uBC14\uC774\uB7EC\uC2A4\uC758
+    \uACF5\uACA9\uC5D0 \uC798 \uBC84\uD2F4\uB2E4. "
 --- !u!1 &790851313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4211,7 +4176,6 @@ GameObject:
   - component: {fileID: 1144282349}
   - component: {fileID: 1144282348}
   - component: {fileID: 1144282347}
-  - component: {fileID: 1144282351}
   - component: {fileID: 1144282352}
   m_Layer: 0
   m_Name: hang
@@ -4419,22 +4383,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1144282351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144282345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fabd62abc96c0e64ea21ee20e11c1ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitSelect
-  unitPrefab: {fileID: 1144282345}
-  shrinkScale: 0.85
-  shrinkDuration: 0.1
-  returnDuration: 0.1
 --- !u!114 &1144282352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4449,7 +4397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
   itemSprite: {fileID: 1467740532895432885, guid: c80f4501f94adcb4ea1ec488d2b3012a, type: 3}
   itemName: "\uD56D\uC0DD\uC81C"
-  itemDescription: "\uBAA9\uC5D0 \uAC78\uB9AC\uBA74 \n\uACE0\uD1B5\uC2A4\uB7FD\uB2E4. "
+  itemDescription: "\uACE0\uD1B5\uC218\uCE58: 30\n\uD544\uB4DC \uB0B4 \uBAA8\uB4E0
+    \n\uC801\uC5D0\uAC8C \uC9C0\uC18D\uD53C\uD574\uB97C \n\uC900\uB2E4."
 --- !u!1 &1197615674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4793,9 +4742,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
   itemSprite: {fileID: 4255798416331755049, guid: 57338c64e1a5367479157625c6f8480f, type: 3}
   itemName: "NK\uC138\uD3EC"
-  itemDescription: "\uB9C8\uC74C\uC774 \uC5EC\uB824 \uBC14\uC774\uB7EC\uC2A4\uB4E4\uB9C8\uC800
-    \uC548\uD0C0\uAE5D\uAC8C \uB290\uB080\uB2E4. \uCD5C\uB300\uD55C \uBE60\uB974\uAC8C
-    \uC18C\uBA78\uC2DC\uD0A4\uB294\uAC74 \uB098\uB984\uC758 \uBC30\uB824."
+  itemDescription: "\uC5FC\uC99D\uC218\uCE58: 30\n\uD638\uC911\uAD6C\uB97C \uBD88\uB7EC\uC628\uB2E4.
+    \uC790\uC2E0\uC740 \uACF5\uACA9\uD558\uAE38 \uAEBC\uB9AC\uB294 \uB4EF."
 --- !u!1 &1256525241
 GameObject:
   m_ObjectHideFlags: 0
@@ -5115,7 +5063,6 @@ GameObject:
   - component: {fileID: 1369150966}
   - component: {fileID: 1369150965}
   - component: {fileID: 1369150968}
-  - component: {fileID: 1369150969}
   - component: {fileID: 1369150970}
   m_Layer: 0
   m_Name: Sak
@@ -5322,22 +5269,6 @@ MonoBehaviour:
   enemyDamageByLevel: 0f0000001900000028000000
   baseDamageByLevel: 080000000c00000012000000
   allyDamageByLevel: 040000000600000009000000
---- !u!114 &1369150969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369150962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fabd62abc96c0e64ea21ee20e11c1ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitSelect
-  unitPrefab: {fileID: 1369150962}
-  shrinkScale: 0.85
-  shrinkDuration: 0.1
-  returnDuration: 0.1
 --- !u!114 &1369150970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5368,7 +5299,6 @@ GameObject:
   - component: {fileID: 1377806903}
   - component: {fileID: 1377806902}
   - component: {fileID: 1377806906}
-  - component: {fileID: 1377806907}
   - component: {fileID: 1377806908}
   m_Layer: 0
   m_Name: hak
@@ -5583,27 +5513,11 @@ MonoBehaviour:
   costInflammationByLevel: 14000000280000003c000000
   upgradeCostInflammation: 3200000064000000
   cooldownTime: 10
-  neutrophilPrefab: {fileID: 0}
+  neutrophilPrefab: {fileID: 8485866012915783785, guid: e9db00132a54d134c9d105af203bb7e9, type: 3}
   spawnRadius: 3
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &1377806907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377806899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fabd62abc96c0e64ea21ee20e11c1ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitSelect
-  unitPrefab: {fileID: 1377806899}
-  shrinkScale: 0.85
-  shrinkDuration: 0.1
-  returnDuration: 0.1
 --- !u!114 &1377806908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5632,7 +5546,6 @@ GameObject:
   - component: {fileID: 1403380507}
   - component: {fileID: 1403380506}
   - component: {fileID: 1403380509}
-  - component: {fileID: 1403380510}
   - component: {fileID: 1403380511}
   m_Layer: 0
   m_Name: cup
@@ -5838,22 +5751,6 @@ MonoBehaviour:
   costPain: 30
   reductionTolerance: 10
   duration: 30
---- !u!114 &1403380510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403380504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fabd62abc96c0e64ea21ee20e11c1ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitSelect
-  unitPrefab: {fileID: 1403380504}
-  shrinkScale: 0.85
-  shrinkDuration: 0.1
-  returnDuration: 0.1
 --- !u!114 &1403380511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5868,8 +5765,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
   itemSprite: {fileID: -346302527542166034, guid: c16816412eeb08b4cbd6d7b494e37db4, type: 3}
   itemName: "\uC624\uB80C\uC9C0\uC8FC\uC2A4"
-  itemDescription: "\uC0C8\uCF64\uB2EC\uCF64\uD55C \uB9DB\uC73C\uB85C \uBAB8\uC18D
-    \uC138\uD3EC\uB4E4\uC5D0\uAC8C \uD65C\uB825\uC744 \uBD88\uC5B4\uB123\uB294\uB2E4."
+  itemDescription: "\uACE0\uD1B5\uC218\uCE58: 30\n\uC7A0\uC2DC\uB3D9\uC548 \uBAA8\uB4E0
+    \n\uC544\uAD70\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0A8\uB2E4."
 --- !u!1 &1425280687
 GameObject:
   m_ObjectHideFlags: 0
@@ -6444,7 +6341,7 @@ Transform:
   m_GameObject: {fileID: 1618751785}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.8, z: 0}
+  m_LocalPosition: {x: -0.1, y: 5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6484,8 +6381,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.047952652, y: 1.0123451}
-  m_Radius: 4.292692
+  m_Offset: {x: -0.047952652, y: 0.12959704}
+  m_Radius: 3.4099443
 --- !u!114 &1618751790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6505,7 +6402,7 @@ MonoBehaviour:
   attackRate: 0
   produceCost: 0
   produceCooldown: 0
-  radius: 12
+  radius: 14
   currentState: 0
   verticalRatio: 0.7
   attackRange: 1.5
@@ -6905,9 +6802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
   itemSprite: {fileID: -8691765959727574692, guid: 87466ff093f5bb642afa912a100bddc7, type: 3}
   itemName: "\uD0AC\uB7EC-T"
-  itemDescription: "\uB208\uC774 \uCD08\uB871\uCD08\uB871\uD55C\uAC8C \uCF64\uD50C\uB809\uC2A4\uB77C
-    \uC5B4\uB450\uC6B4 \uBAB8 \uC18D\uC5D0\uC11C\uB3C4 \uC120\uAE00\uB77C\uC2A4\uB97C
-    \uCC29\uC6A9\uD55C\uB2E4."
+  itemDescription: "\uC5FC\uC99D\uC218\uCE58: 13\n\uBE60\uB974\uACE0, \uD655\uC2E4\uD558\uAC8C."
 --- !u!1 &1833372881
 GameObject:
   m_ObjectHideFlags: 0
