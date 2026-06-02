@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7690660331728782725}
   - component: {fileID: 7746294422358088053}
-  - component: {fileID: 1421293864261519863}
   - component: {fileID: 1649289386648968439}
   - component: {fileID: 4039863181564231422}
   m_Layer: 0
@@ -94,30 +93,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1421293864261519863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3485345870305488431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 571fa7455f5e6f64ea16b3110c3e7a99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  maxHealth: 3
-  moveSpeed: 3
-  detectRange: 0
-  damage: 1
-  attackRate: 0
-  produceCost: 0
-  produceCooldown: 0
-  radius: 10
-  currentState: 0
-  baseTarget: {fileID: 0}
-  verticalRatio: 0.7
-  attackRange: 1.5
 --- !u!114 &1649289386648968439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,11 +112,11 @@ MonoBehaviour:
   attackRate: 0
   produceCost: 10
   produceCooldown: 3
-  radius: 10
+  radius: 2
   currentState: 0
   baseTarget: {fileID: 0}
   verticalRatio: 0.7
-  attackRange: 1.5
+  attackRange: 1
   combinedCellPrefab: {fileID: 3485345870305488431}
   firstCloneTime: 15
   recloneTime: 30

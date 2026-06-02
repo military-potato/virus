@@ -14,16 +14,12 @@ public class SaitoKainTonadoSkill : ActiveSkillBase
     private bool isStormActive = false;
     private Coroutine stormCoroutine;
 
-    // 💡 부모 클래스(ActiveSkillBase)에 Awake가 없으므로 
-    // override나 base.Awake() 없이 단독으로 작성하여 초기화합니다!
     private void Awake()
     {
         skillName = "사이토카인 폭풍";
         cooldownTime = 0f; // On/Off 토글형이므로 쿨타임은 사용하지 않음
     }
 
-    // 💡 부모 클래스가 요구하는 필수 추상 함수(ActivateSkillEffect)를 완벽하게 구현합니다.
-    // 외부 UI 버튼에서 'TryUseSkill()'을 호출하면 자원이 깎인 뒤 이 함수가 실행됩니다!
     protected override void ActivateSkillEffect()
     {
         // 토글 ON / OFF 스위칭
@@ -57,14 +53,12 @@ public class SaitoKainTonadoSkill : ActiveSkillBase
 
             Debug.Log($"[폭풍 DoT 틱 작동 중] Lv.{currentLevel} -> 병원체: {currentEnemyDamage} | 거점: {currentBaseDamage} | 아군: {currentAllyDamage}");
 
-            // TODO: 실제 다른 매니저나 시스템 스크립트 연결부
-            // BaseStation.Instance.TakeDamage(currentBaseDamage);
 
             yield return new WaitForSeconds(damageInterval);
         }
     }
 
-    // 💡 부모의 TryUpgradeSkill을 통해 레벨업에 성공했을 때 실행되는 보너스 함수입니다.
+    // 레벨업에 성공했을 때 실행되는 보너스 함수입니다.
     protected override void OnLevelUp()
     {
         Debug.Log($"<color=green><b>[{skillName} 레벨업 완료]</b></color> 현재 Lv.{currentLevel}.");

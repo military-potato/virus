@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ItemAntibiotics : ItemBase
+public class ItemHangsengje : ItemBase
 {
     [Header("[ 항생제 DoT 설정 ]")]
     [Tooltip("초당 적 최대체력의 몇 %만큼 깎을 것인가? (0.05f면 초당 5% 피해)")]
@@ -13,7 +13,7 @@ public class ItemAntibiotics : ItemBase
         nameString = "항생제";
         description = "필드에 나와있는 모든 병원체(적)에게 지속적인 피해를 준다. 지속시간 내 새로 나온 적도 포함.";
 
-        // 기획서 반영용 기본 세팅 (인스펙터창에서 변경 가능)
+        // 기본 세팅 (인스펙터창에서 변경 가능)
         duration = 30f;
         cooldownTime = 50f;
     }
@@ -31,8 +31,7 @@ public class ItemAntibiotics : ItemBase
         // 30초 지속시간에 도달할 때까지 루프 작동
         while (elapsed < duration)
         {
-            // 💡 [신버전 에러 해결] FindObjectsOfType 대신 FindObjectsByType 사용
-            // 틱이 돌 때마다 새로 감지하므로 중간에 새로 스폰된 적들도 실시간 적용됩니다!
+ 
             EnemyUnit[] currentEnemies = Object.FindObjectsByType<EnemyUnit>(FindObjectsSortMode.None);
 
             foreach (EnemyUnit enemy in currentEnemies)

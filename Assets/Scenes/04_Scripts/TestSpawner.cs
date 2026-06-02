@@ -26,45 +26,12 @@ public class TestSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4)) TrySpawn(killerTPrefab, ref timer4);
         if (Input.GetKeyDown(KeyCode.Alpha5)) TrySpawn(NKsepoPrefab, ref timer5);
         if (Input.GetKeyDown(KeyCode.Alpha6)) TrySpawn(limpguPrefab, ref timer6);
-        /*
-        // 1번 키를 누르면 마우스 커서 위치에 호중구 소환
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(hojunguPrefab, mousePos, Quaternion.identity);
-        }
-        
-        // 3번 키를 누르면 마우스 커서 위치에 대식 소환
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(daesikPrefab, mousePos, Quaternion.identity);
-        }
-        //4번 키를 누르면 마우스 커서 위치에 킬러T 소환
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(killerTPrefab, mousePos, Quaternion.identity);
-        }
-        // 5번 키를 누르면 마우스 커서 위치에 림프구 소환
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(limpguPrefab, mousePos, Quaternion.identity);
-        }
-        // 6번 키를 누르면 마우스 커서 위치에 NK세포 소환
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(NKsepoPrefab, mousePos, Quaternion.identity);
-        }
-        */
-        // 2번 키를 누르면 화면 밖(외곽) 랜덤 위치에 적군 소환
+     
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Vector2 randomDirection = Random.insideUnitCircle.normalized;
 
-            // 핵심 수정: 현재 Spawner 오브젝트의 위치(transform.position)를 기준으로 반지름만큼 더해줍니다.
+            // 현재 Spawner 오브젝트의 위치(transform.position)를 기준으로 반지름만큼 더함
             Vector2 spawnCenter = transform.position;
             Vector2 spawnPos = spawnCenter + (randomDirection * enemySpawnRadius);
 

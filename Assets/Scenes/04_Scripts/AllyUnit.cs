@@ -15,16 +15,11 @@ public class AllyUnit : UnitBase
     private float lastAttackTime;
     private Vector3 spawnPosition;      // 원래 대기하던 위치 기록용
 
-    // [추가] 분리된 연출 스크립트를 연결하기 위한 참조 변수
-    private CellActionFX actionFX;
 
     protected override void Start()
     {
         base.Start();
         spawnPosition = transform.position; // 스폰된 위치를 집(대기소)으로 지정
-
-        // [추가] 내 몸뚱이에 함께 붙어있을 연출 컴포넌트를 가져옵니다.
-        actionFX = GetComponent<CellActionFX>();
     }
 
     protected override void Update()
@@ -69,6 +64,7 @@ public class AllyUnit : UnitBase
         }
     }
 
+    // ================= [이 부분이 수정되었습니다] =================
     protected void UpdateState()
     {
         if (attackCooldown > 0)
@@ -76,9 +72,22 @@ public class AllyUnit : UnitBase
         
         if (currentTarget == null) return;
 
+        // 1. 나와 타겟 사이의 실제 중심점 간 거리 계산
         float distance = Vector2.Distance(transform.position, currentTarget.position);
 
-        if (distance <= attackRange)
+        // 2. 타겟(적)의 UnitBase 컴포넌트를 가져와 반지름 확인
+        float targetRadius = 0f;
+        UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();
+        if (targetUnit != null)
+        {
+            targetRadius = targetUnit.radius;
+        }
+
+        // 3. [핵심] 외곽 정지 공식 적용: 내 반지름 + 상대 반지름 + 내 공격 사거리
+        float stopDistance = this.radius + targetRadius + attackRange;
+
+        // 4. 계산된 동적 거리 기준으로 상태 전환
+        if (distance <= stopDistance)
         {
             currentState = State.Attacking;
         }
@@ -93,7 +102,7 @@ public class AllyUnit : UnitBase
         // 1. 대기 상태 (적이 없을 때)
         if (currentState == State.Idle)
         {
-            // 원래 스폰되었던 자리로 복귀하는 로직 (기지 주변을 지키게 함)
+            // 원래 스폰 되었던 자리로 복귀하는 로직 (기지 주변을 지키게 함)
             float distToSpawn = Vector2.Distance(transform.position, spawnPosition);
             if (distToSpawn > 0.2f)
             {
@@ -114,7 +123,7 @@ public class AllyUnit : UnitBase
             {
                 AttackTarget();
 
-                // 공격 후, 부모가 가진 attackRate(공격 간격) 수치로 타이머를 다시 채웁니다!
+                // 공격 후, 부모가 가진 attackRate(공격 간격) 수치로 타이머를 다시 채움
                 attackCooldown = attackRate;
             }
             return;
@@ -133,13 +142,7 @@ public class AllyUnit : UnitBase
     {
         if (currentTarget == null) return;
 
-        // [신호 연동] 공격 주기가 도래하여 때리는 타이밍에 분리된 연출 컴포넌트로 타겟 정보를 토스합니다.
-        if (actionFX != null)
-        {
-            actionFX.PlayBodySlam(currentTarget);
-        }
-
-        // 상대방의 UnitBase 컴포넌트를 가져와서 데미지를 줍니다.
+        // 상대방의 UnitBase 컴포넌트를 가져와서 데미지를 줌
         UnitBase targetUnit = currentTarget.GetComponent<UnitBase>();
         if (targetUnit != null)
         {
@@ -148,12 +151,14 @@ public class AllyUnit : UnitBase
         }
     }
 
+    // 디버그 기즈모 시각화도 외곽선 기준으로 수정하면 좋습니다.
     protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, detectRange); // 인식 범위 (초록색)
 
+        // 사거리 기즈모에 내 반지름을 더해서 표현해 주면 에디터에서 보기 편합니다.
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange); // 공격 사거리 (빨간색)
+        Gizmos.DrawWireSphere(transform.position, radius + attackRange); // 공격 사거리 (빨간색)
     }
 }

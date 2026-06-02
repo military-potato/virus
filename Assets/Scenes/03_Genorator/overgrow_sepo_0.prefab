@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2083184661828428062}
   - component: {fileID: 5666839156114175095}
-  - component: {fileID: 1883353485432752686}
   - component: {fileID: 5434016941827933700}
   - component: {fileID: -1455028434057502307}
   m_Layer: 0
@@ -92,32 +91,8 @@ SpriteRenderer:
   m_Size: {x: 9.19, y: 7.88}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1883353485432752686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8354894569701501226}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 571fa7455f5e6f64ea16b3110c3e7a99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  maxHealth: 7
-  moveSpeed: 1
-  detectRange: 0
-  damage: 4
-  attackRate: 0
-  produceCost: 0
-  produceCooldown: 0
-  radius: 10
-  currentState: 0
-  baseTarget: {fileID: 0}
-  verticalRatio: 0.7
-  attackRange: 1.5
 --- !u!58 &5434016941827933700
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,12 +123,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 4.595
+  m_Radius: 3
 --- !u!114 &-1455028434057502307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,11 +148,11 @@ MonoBehaviour:
   attackRate: 0
   produceCost: 0
   produceCooldown: 0
-  radius: 10
+  radius: 2
   currentState: 0
   baseTarget: {fileID: 0}
   verticalRatio: 0.7
-  attackRange: 1.5
+  attackRange: 1
   powerfulVirusPrefab: {fileID: 3533862290514383197, guid: c4707f1a34369a649b026da8a245553b, type: 3}
   firstSpawnTime: 15
   respawnTime: 30

@@ -1,0 +1,46 @@
+using UnityEngine;
+
+public class gameclear : MonoBehaviour
+{
+    // [추가] 외부에서 이 스크립트에 바로 접근할 수 있도록 싱글톤 패턴 적용
+    public static gameclear Instance { get; private set; }
+
+    [Header("게임오버 시 켤 반투명 패널 UI")]
+    [SerializeField] private GameObject gameOverPanel;
+
+    private void Awake()
+    {
+        // 싱글톤 초기화
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        // 게임 시작 시에는 판넬을 확실히 꺼두고, 시간을 정상으로 돌림
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+        Time.timeScale = 1f; 
+    }
+
+    //게임오버 조건이 충족되었을 때 외부에서 호출할 함수
+    public void TriggerGameOver()
+    {
+        Debug.Log("게임 클리어 UI 표시");
+
+        // 1. 모든 유닛과 물리 연산을 그 자리에 멈춤
+        Time.timeScale = 0f;
+
+        // 2. 만들어둔 반투명 게임오버 UI 창을 켬
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("GameclearPanel이 인스펙터에 연결되지 않았습니다!");
+        }
+    }
+}

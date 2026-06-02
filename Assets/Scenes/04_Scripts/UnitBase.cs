@@ -16,7 +16,7 @@ public class UnitBase : MonoBehaviour
 
     [Header("Size Settings")]
     [Tooltip("유닛의 물리적 반지름 크기입니다. 외곽선 정지 계산에 사용됩니다.")]
-    public float radius = 10; // ★ 추가된 변수
+    public float radius = 10;
 
     protected virtual void Start()
     {
@@ -29,6 +29,7 @@ public class UnitBase : MonoBehaviour
         {
             attackCooldown -= Time.deltaTime;
         }
+        
     }
 
     public virtual void TakeDamage(float damage)
@@ -39,9 +40,14 @@ public class UnitBase : MonoBehaviour
             Die(); //사멸함수 발동
         }
     }
-
+    // 외부에서 현재 체력 값을 안전하게 읽어갈 수 있도록 돕는 public 함수
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
     protected virtual void Die()
     {
         Destroy(gameObject);  // 체력 0 이하 시 사멸
     }
+    
 }

@@ -8,10 +8,10 @@ public abstract class ActiveSkillBase : MonoBehaviour
     public int maxLevel = 3;
 
     [Header("[ 자원 소모 설정 ]")]
-    // 인스펙터에서 각 레벨(1, 2, 3레벨)일 때 소모할 염증 수치를 적습니다. (예: 20, 40, 60)
+    // 인스펙터에서 각 레벨(1, 2, 3레벨)일 때 소모할 염증 수치 (예: 20, 40, 60)
     public int[] costInflammationByLevel = new int[3] { 20, 40, 60 };
 
-    // 인스펙터에서 레벨업할 때(1->2레벨, 2->3레벨) 소모할 염증 수치를 적습니다. (예: 50, 100)
+    // 인스펙터에서 레벨업할 때(1->2레벨, 2->3레벨) 소모할 염증 수치 (예: 50, 100)
     public int[] upgradeCostInflammation = new int[2] { 50, 100 };
 
     [Header("[ 쿨타임 설정 ]")]
@@ -32,7 +32,7 @@ public abstract class ActiveSkillBase : MonoBehaviour
         }
     }
 
-    // [핵심 1] 스킬 사용 시 자원 검사 및 차감
+    // 1. 스킬 사용 시 자원 검사 및 차감
     public void TryUseSkill()
     {
         if (isCooldown)
@@ -52,7 +52,7 @@ public abstract class ActiveSkillBase : MonoBehaviour
         }
     }
 
-    // [핵심 2] 레벨업 시 자원 검사 및 차감
+    // 2. 레벨업 시 자원 검사 및 차감
     public void TryUpgradeSkill()
     {
         if (currentLevel >= maxLevel)
@@ -73,7 +73,7 @@ public abstract class ActiveSkillBase : MonoBehaviour
         }
     }
 
-    // 자식 스킬들이 고유의 효과를 채워넣을 추상 함수들
+    // 자식 스킬들이 고유의 효과를 채워넣을 함수들
     protected abstract void ActivateSkillEffect();
     protected virtual void OnLevelUp() { }
 

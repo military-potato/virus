@@ -7,7 +7,7 @@ public class gameover : MonoBehaviour
 
     private void Start()
     {
-        // 게임 시작 시에는 판넬을 확실히 꺼두고, 시간을 정상(1)으로 돌립니다.
+        // 게임 시작 시에는 판넬을 확실히 꺼두고, 시간을 정상으로 돌림
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(false);
@@ -15,9 +15,7 @@ public class gameover : MonoBehaviour
         Time.timeScale = 1f; 
     }
 
-    /// <summary>
-    /// 게임오버 조건이 충족되었을 때 외부에서 호출할 함수
-    /// </summary>
+    //게임오버 조건이 충족되었을 때 외부에서 호출할 함수
     public void TriggerGameOver()
     {
         Debug.Log("게임 오버 트리거 발동!");

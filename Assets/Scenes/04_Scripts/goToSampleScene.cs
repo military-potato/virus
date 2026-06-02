@@ -6,9 +6,7 @@ public class CustomSceneChanger : MonoBehaviour
     [Header("이동할 씬 이름을 입력하세요")]
     [SerializeField] private string targetSceneName;
 
-    /// <summary>
-    /// 인스펙터에 설정된 targetSceneName으로 이동합니다.
-    /// </summary>
+    // 인스펙터에 설정된 targetSceneName으로 이동
     public void ChangeToTargetScene()
     {
         if (!string.IsNullOrEmpty(targetSceneName))
